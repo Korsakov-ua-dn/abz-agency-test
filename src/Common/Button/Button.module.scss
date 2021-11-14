@@ -1,0 +1,42 @@
+@import "../variables";
+
+.btn {
+  height: 50px;
+  width: 148px;
+  border: none;
+  border-radius: 80px;
+  transition-duration: 0.4s;
+  font-size: 18px;
+  line-height: 140%;
+  cursor: pointer;
+  &:hover {
+    background-color: $primaryHoverColor;
+  }
+}
+
+.primary {
+  background: $primaryColor;
+
+}
+
+.secondary {
+  background-color: $secondaryColor;
+}
+
+.primary, .secondary {
+  &:disabled {
+    background: #b4b4b4;
+    color: white;
+    border: none;
+  }
+
+  &:focus {
+    border: none;
+  }
+
+  &:active {
+    border: none;
+  }
+
+}
+

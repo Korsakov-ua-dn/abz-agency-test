@@ -1,0 +1,84 @@
+@import "../variables";
+
+.wrapper {
+  display: inline-block;
+  position: relative;
+
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+
+    .error {
+      color: $redColor;
+      font-size: 12px;
+      line-height: 140%;
+    }
+
+    .info {
+      font-size: 12px;
+      line-height: 140%;
+    }
+  }
+
+}
+
+.input {
+  outline: none;
+  width: 328px;
+  height: 54px;
+  padding: 14px 16px;
+  display: block;
+  border: 1px solid $enableColor;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 160%;
+  -webkit-box-shadow: inset 0 0 0 50px $backgroundColor; /* накладываеть тень поверх инпута т.к. с автозполнением из браузера прилетают другие стили*/
+  -webkit-text-fill-color: $textColor;
+
+  &:valid,
+  &:focus {
+    outline: none;
+    border: 2px solid $secondaryColor;
+    color: $textColor;
+
+  }
+
+  &:-webkit-autofill ~ .label, /*отодвигает лейблы при автозаполнении полей браузером*/
+  &:valid ~ .label,
+  &:focus ~ .label {
+    box-sizing: content-box;
+    height: 17px;
+    top: -11px;
+    border: 4px solid $backgroundColor;
+    background-color: $backgroundColor;
+    font-size: 12px;
+    line-height: 140%;
+    color: $secondaryColor;
+  }
+}
+
+.label {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  color: $greyColor;
+  font-size: 16px;
+  line-height: 160%;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.errorInput,
+.errorInput:focus,
+.errorInput:valid {
+  border: 2px solid $redColor;
+
+  &:valid ~ .label,
+  &:focus ~ .label {
+    color: $redColor;
+  }
+}
