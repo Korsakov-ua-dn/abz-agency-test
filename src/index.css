@@ -41,10 +41,10 @@ a {
     text-decoration: none;
 }
 
-code, button, input {
+code, input {
     font-family: 'Asap', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-h1, h2 {
+h1, h2, a, p, button {
     font-family: "Nunito Sans Regular", sans-serif;
 }
