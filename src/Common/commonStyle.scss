@@ -1,7 +1,7 @@
-@mixin container {
+@mixin container($p) {
     max-width: 1170px;
     margin: 0 auto;
-    padding: 0 60px;
+    padding: 0 $p;
 }
 
 @mixin flexCenter($direction) {

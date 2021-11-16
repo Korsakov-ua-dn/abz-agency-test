@@ -1,7 +1,9 @@
 @import "./../../Common/commonStyle.scss";
 
 .section {
-    padding: 175px 60px;
+    @include container(60px);
+
+    margin: 175px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -22,7 +24,7 @@
             font-size: 22px;
             line-height: 28px;
             margin-top: 9px;
-        }
+        }   
         
         p {
             padding: 20px 0 32px 0;

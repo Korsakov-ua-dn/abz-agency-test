@@ -1,8 +1,9 @@
 @import "../../Common/commonStyle.scss";
 
 .section {
+    @include container(60px);
+
     height: 650px;
-    padding-left: 60px;
     background: center / cover no-repeat url("../../Assets/Img/Banner_photo.jpg");
 }
 

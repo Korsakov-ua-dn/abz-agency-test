@@ -1,0 +1,45 @@
+@import "./../../Common/commonStyle.scss";
+@import "../../Common/variables";
+
+
+.section {
+    @include container(60px);
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 29px;
+    
+}
+
+.userWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px 30px;
+
+    .photoWrapper {
+        width: 70px;
+        margin-bottom: 20px;
+        
+        img {
+            width: 100%;
+            border-radius: 50%;
+        }
+    }
+
+    h2 {
+        margin-bottom: 18px;
+        font-size: 22px;
+        line-height: 28px;
+        text-align: center;
+        color: $textColor;
+    }
+    .descrWrapper {
+        @include flexCenter(column);
+
+        font-size: 16px;
+        line-height: 26px;
+        text-align: center;
+    }
+}
