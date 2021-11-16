@@ -2,11 +2,10 @@
 
 .section {
     @include container(60px);
+    @include flexCenter(row);
 
-    margin: 175px 0;
-    display: flex;
+    margin: 175px auto;
     justify-content: space-between;
-    align-items: center;
 
     img {
         height: 340px;

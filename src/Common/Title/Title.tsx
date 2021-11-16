@@ -1,3 +1,4 @@
+import React from "react"
 import s from "./Title.module.scss"
 
 type PropsType = {

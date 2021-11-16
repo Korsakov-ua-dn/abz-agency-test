@@ -1,5 +1,5 @@
-import Button from "./Button/Button";
-import {InputText} from "./Input/InputText";
+import Button from "./Button/Button"
+import {InputText} from "./Input/InputText"
 
 export const View = () => {
 

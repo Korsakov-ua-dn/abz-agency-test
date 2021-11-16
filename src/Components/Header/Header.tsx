@@ -1,5 +1,5 @@
 import s from "./Header.module.scss"
-import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { Link } from "react-scroll"
 
 export const Header = ()  => {
     return (
