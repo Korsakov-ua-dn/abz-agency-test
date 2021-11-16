@@ -11,8 +11,8 @@ export const View = () => {
             justifyContent: "space-between",
             alignItems: "center",
         }}>
-            <Button primary>Normal</Button>
-            <Button primary disabled>Disabled</Button>
+            <Button>Normal</Button>
+            <Button disabled>Disabled</Button>
             <InputText
                 label={"E-mail"}
                 placeholder={"enter your email"}

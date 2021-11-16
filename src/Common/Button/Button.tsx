@@ -5,16 +5,16 @@ import s from './Button.module.scss'
 type DefaultButtonPropsType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 
 type SuperButtonPropsType = DefaultButtonPropsType & {
-    primary?: boolean
+    secondary?: boolean
 }
 
 const Button: React.FC<SuperButtonPropsType> = (
     {
-        className, primary,
+        className, secondary,
         ...restProps// все остальные пропсы попадут в объект restProps, там же будет children
     }
 ) => {
-    const finalClassName = `${primary ? s.primary : s.secondary} ${s.btn} ${className}`;
+    const finalClassName = `${secondary ? s.secondary : s.primary} ${s.btn} ${className}`;
 
     return (
         <button

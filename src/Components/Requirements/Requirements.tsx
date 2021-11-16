@@ -16,7 +16,7 @@ export const Requirements = () => {
                     vast understanding of User design thinking as they'll be building web interfaces with accessibility
                     in mind. They should also be excited to learn, as the world of Front-End Development keeps
                     evolving.</p>
-                <Button primary>Sign up</Button>
+                <Button>Sign up</Button>
             </div>
         </section>
     )

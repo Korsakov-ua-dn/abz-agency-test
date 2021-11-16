@@ -17,7 +17,7 @@ function App() {
 
     useEffect(() => {
         dispatch(initializeApp())
-    }, [])
+    }, [dispatch])
 
     return (
         <div className={s.app}>

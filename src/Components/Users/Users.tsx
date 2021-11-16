@@ -2,6 +2,7 @@ import {UserType} from "../../Main/DAL/axios"
 import s from "./Users.module.scss"
 import {Title} from "../../Common/Title/Title"
 import {User} from "./User"
+import Button from "../../Common/Button/Button";
 
 type PropsType = {
     columns: number
@@ -33,6 +34,7 @@ export const Users: React.FC<PropsType> = ({
                     email={u.email}
                     phone={u.phone}/>)}
             </div>
+            <Button>Show more</Button>
         </section>
     )
 }

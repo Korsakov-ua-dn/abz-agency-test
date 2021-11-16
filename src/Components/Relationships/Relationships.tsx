@@ -12,7 +12,7 @@ export const Relationships = () => {
                         ensure conversion. Therefore, responsive design, programming languages and specific frameworks
                         are the must-have skillsets to look for when assessing your front-end developers.</p>
                 </div>
-                <Button primary>Sign up</Button>
+                <Button>Sign up</Button>
             </div>
         </section>
     )
