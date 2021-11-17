@@ -5,13 +5,17 @@ import {User} from "./User"
 import Button from "../../Common/Button/Button";
 
 type PropsType = {
-    columns: number
+    showMoreHandler: () => void
+    columns: number | null
     users: UserType[]
+    lastPage: boolean
 }
 
 export const Users: React.FC<PropsType> = ({
+                                               showMoreHandler,
                                                columns,
                                                users,
+                                               lastPage,
                                            }) => {
 
     const grid = {
@@ -34,7 +38,7 @@ export const Users: React.FC<PropsType> = ({
                     email={u.email}
                     phone={u.phone}/>)}
             </div>
-            <Button>Show more</Button>
+            {!lastPage && <Button onClick={showMoreHandler} >Show more</Button>}
         </section>
     )
 }

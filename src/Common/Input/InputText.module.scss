@@ -36,13 +36,43 @@
   line-height: 160%;
   -webkit-box-shadow: inset 0 0 0 50px $backgroundColor; /* накладываеть тень поверх инпута т.к. с автозполнением из браузера прилетают другие стили*/
   -webkit-text-fill-color: $textColor;
+  &::-webkit-input-placeholder {
+    color: transparent;
+    transition: 0.2s;
+  }
+
+  &::-moz-placeholder {
+    color: transparent;
+    transition: 0.2s;
+  }
+  
+  &:-ms-input-placeholder {
+    color: transparent;
+    transition: 0.2s;
+  }
+ 
+  &:focus {
+    &::-webkit-input-placeholder {
+      color: #7E7E7E;
+      transition: 0.2s;
+    }
+	
+	  &::-moz-placeholder {
+      color: #7E7E7E;
+      transition: 0.2s;
+    }
+		
+	  &:-ms-input-placeholder {
+      color: #7E7E7E;
+      transition: 0.2s;
+    }
+  }
 
   &:valid,
   &:focus {
     outline: none;
     border: 2px solid $secondaryColor;
     color: $textColor;
-
   }
 
   &:-webkit-autofill ~ .label, /*отодвигает лейблы при автозаполнении полей браузером*/

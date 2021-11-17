@@ -1,14 +1,21 @@
 import {Dispatch} from 'redux'
+import {ThunkAction} from 'redux-thunk'
 import {usersAPI, UserType} from '../DAL/axios'
 
 const initialstate = {
     users: [] as UserType[],
+    currentPage: 1,
+    totalPages: 0,
 }
 
 export const b3UsersReducer = (state: UsersStateType = initialstate, action: UsersActionType): UsersStateType => {
     switch (action.type) {
+        case "USERS/SET_TOTAL_PAGES":
+            return {...state, ...action.payload}
         case "USERS/SET_USERS":
-            return {...state, users: action.users}
+            return {...state, users: [...state.users, ...action.users] }
+        case "USERS/INC_CURRENT_PAGE":
+            return {...state, currentPage: state.currentPage + 1}
 
         default:
             return state
@@ -17,12 +24,18 @@ export const b3UsersReducer = (state: UsersStateType = initialstate, action: Use
 
 // actions
 const setUsers = (users: UserType[]) => ({type: "USERS/SET_USERS", users} as const)
+const setCurrentPage = () => ({type: "USERS/INC_CURRENT_PAGE"} as const)
+const setTotalPages = (totalPages: number) => ({type: "USERS/SET_TOTAL_PAGES", payload: {totalPages}} as const)
 
 // thunks
-export const getUsers = () => (dispatch: Dispatch) => {
-    usersAPI.getUsers()
+export const getUsers = (): ThunkTypes => (dispatch: Dispatch, getState: () => any) => {
+    const countUsers = getState().auth.numberColumns * 3 // number of rows always "3"
+    const currentPage = getState().users.currentPage
+
+    usersAPI.getUsers(currentPage, countUsers)
         .then(res => {
             dispatch(setUsers(res.data.users))
+            dispatch(setTotalPages(res.data.total_pages))
         })
         .catch(e => {
             console.log(e)
@@ -32,8 +45,21 @@ export const getUsers = () => (dispatch: Dispatch) => {
         .finally(() => {
         })
 }
+export const showMore = (): ThunkTypes  => dispatch => {
+
+    dispatch(setCurrentPage())
+
+    dispatch(getUsers())
+}
 
 // types
 export type UsersStateType = typeof initialstate
 
 export type UsersActionType = ReturnType<typeof setUsers>
+    | ReturnType<typeof setCurrentPage>
+    | ReturnType<typeof setTotalPages>
+
+export type ThunkTypes<ReturnType = void> = ThunkAction<ReturnType,
+UsersStateType,
+    unknown,
+    UsersActionType>

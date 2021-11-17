@@ -11,9 +11,15 @@ export const authAPI = {
 }
 
 export const usersAPI = {
-    getUsers() {
-        return instance.get<GetUsersType>("/users?page=1&count=9")
+    getUsers(currentPage: number, count: number) {
+        return instance.get<GetUsersType>(`/users?page=${currentPage}&count=${count}`)
     }
+}
+
+export const signUpAPI = {
+    getPositions() {
+        return instance.get<RequestPositionsType>("/positions")
+    },
 }
 
 //types
@@ -44,4 +50,14 @@ type GetUsersType = {
         prev_ur: string | null
     }
     users: UserType[]
+}
+
+export type PositionType = {
+   id: number
+   name: string
+}
+
+type RequestPositionsType = {
+    success: boolean
+    positions : PositionType[]
 }
