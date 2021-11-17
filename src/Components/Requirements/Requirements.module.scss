@@ -1,4 +1,4 @@
-@import "./../../Common/commonStyle.scss";
+@import "../../SassCommon/mixines";
 
 .section {
     @include container(60px);

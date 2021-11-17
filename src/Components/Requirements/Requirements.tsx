@@ -1,7 +1,7 @@
 import s from "./Requirements.module.scss"
 import img from "../../Assets/Img/man_at_table.svg"
-import {Title} from "../../Common/Title/Title"
-import Button from "../../Common/Button/Button"
+import {Title} from "../Common/Title/Title"
+import Button from "../Common/Button/Button"
 
 export const Requirements = () => {
     return (

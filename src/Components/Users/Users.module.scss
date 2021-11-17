@@ -1,5 +1,5 @@
-@import "./../../Common/commonStyle.scss";
-@import "../../Common/variables";
+@import "../../SassCommon/mixines";
+@import "../../SassCommon/variables";
 
 .section {
     @include container(60px);

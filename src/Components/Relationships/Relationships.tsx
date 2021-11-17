@@ -1,5 +1,5 @@
-import Button from "../../Common/Button/Button"
-import {Title} from "../../Common/Title/Title"
+import Button from "../Common/Button/Button"
+import {Title} from "../Common/Title/Title"
 import s from "./Relationships.module.scss"
 
 export const Relationships = () => {

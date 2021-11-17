@@ -1,8 +1,8 @@
 import {UserType} from "../../Main/DAL/axios"
 import s from "./Users.module.scss"
-import {Title} from "../../Common/Title/Title"
+import {Title} from "../Common/Title/Title"
 import {User} from "./User"
-import Button from "../../Common/Button/Button";
+import Button from "../Common/Button/Button";
 
 type PropsType = {
     showMoreHandler: () => void
