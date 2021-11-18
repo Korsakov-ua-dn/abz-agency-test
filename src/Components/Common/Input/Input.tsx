@@ -10,7 +10,7 @@ type SuperInputTextPropsType = DefaultInputPropsType & { // и + ещё проп
     onChangeText?: (value: string) => void
     onEnter?: () => void
     setError?: (error: string) => void
-    error?: string
+    error?: boolean
     label?: string
     spanClassName?: string
     register?: any
@@ -58,9 +58,9 @@ export const Input: React.FC<SuperInputTextPropsType> = (
                 {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
             />
             <label className={s.label}>{label}</label>
-            <div>
+            {/* <div>
                 <span className={s.error}>{error}</span>
-            </div>
+            </div> */}
         </div>
     )
 }

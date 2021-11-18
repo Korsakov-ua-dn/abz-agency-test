@@ -17,7 +17,7 @@
             .description {
                 @include flexCenter(column);
             
-                align-items: start;
+                align-items: flex-start;
                 max-width: 670px;
                 height: 100%;
                 h1 {

@@ -11,7 +11,7 @@ export const SignUpContainer = () => {
 
     useEffect(() => {
         dispatch(getPositions())
-    }, [])
+    }, [dispatch])
 
     return (
         <SignUp positions={positions}/>

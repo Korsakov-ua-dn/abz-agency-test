@@ -22,7 +22,7 @@
                 .positionWrapper {
                     @include flexCenter(column);
 
-                    align-items: start;
+                    align-items: flex-start;
                     width: 100%;
                 }
             }

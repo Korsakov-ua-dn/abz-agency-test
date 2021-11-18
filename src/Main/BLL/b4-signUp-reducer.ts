@@ -1,5 +1,5 @@
 import {Dispatch} from 'redux'
-import {authAPI, PositionType, signUpAPI} from '../DAL/axios'
+import {PositionType, signUpAPI} from '../DAL/axios'
 
 const initialstate = {
     positions: [] as PositionType[],

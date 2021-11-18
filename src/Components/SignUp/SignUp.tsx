@@ -1,4 +1,5 @@
-import { SubmitHandler, useForm, Controller } from "react-hook-form"
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form"
 import { PositionType } from "../../Main/DAL/axios";
 import { Input } from "../Common/Input/Input";
 import { Title } from "../Common/Title/Title";
@@ -10,11 +11,13 @@ type PropsType = {
 
 export const SignUp:React.FC<PropsType> = ({positions}) => {
 
+    const [radioId, setRadioId] = useState(1)
+
     const setMarginBottom = (mb: number) => ({
         marginBottom: `${mb}px`
     })
 
-    const { register, handleSubmit, reset, control } = useForm<any>({});
+    const { register, handleSubmit, formState: { errors } } = useForm<FormDataType>({});
     const onSubmit: SubmitHandler<FormDataType> = data => console.log(data)
    
     return (
@@ -26,20 +29,20 @@ export const SignUp:React.FC<PropsType> = ({positions}) => {
                     <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
 
                         <Input 
-                                style={setMarginBottom(50)}
-                                label={"Your name"} 
-                                placeholder={"Enter your name"} 
-                                type="text" 
-                                // error={errors.name}
-                                register={ {...register("name", { required: true, minLength: 2, maxLength: 60 })} } 
-                            />
+                            style={setMarginBottom(50)}
+                            label={"Your name"} 
+                            placeholder={"Enter your name"} 
+                            type="text" 
+                            error={!!errors.name}
+                            register={ {...register("name", { required: true, minLength: 2, maxLength: 60 })} } 
+                        />
                         
                         <Input 
                             style={setMarginBottom(50)}
                             label={"Email"} 
                             placeholder={"Enter your email"} 
                             type="text" 
-                            // error={errors.email}
+                            error={!!errors.email}
                             register={ {...register("email", { required: true, minLength: 2, maxLength: 100})} }
                         />
 
@@ -48,35 +51,17 @@ export const SignUp:React.FC<PropsType> = ({positions}) => {
                             label={"Phone"} 
                             placeholder={"Enter your phone"} 
                             type="text" 
-                            // error={errors.phone}
+                            error={!!errors.phone}
                             register={ {...register("phone", { required: true })} }
                         />
-                        {/* <label>Select your position</label>
-                        <Controller
-                        as={
-                            <RadioGroup aria-label="gender">
-                            <FormControlLabel
-                                value="female"
-                                control={<Radio />}
-                                label="Female"
-                            />
-                            <FormControlLabel
-                                value="male"
-                                control={<Radio />}
-                                label="Male"
-                            />
-                            </RadioGroup>
-                        }
-                        name="RadioGroup"
-                        control={control}
-                        /> */}
-                        {/* <div className={s.positionWrapper}>
+                        
+                        <div className={s.positionWrapper}>
                             <span>Select your position</span>
                             { 
-                                positions.map(p => <input key={p.id} type="radio"   {...register(`${p.name}`)} />)
+                                positions.map((p) => <input key={p.id} type="radio" {...register("position")} value={radioId} checked={p.id === radioId} onChange={() =>setRadioId(p.id)}/>)
                             }
                         </div>
-                        <input type="file" {...register("photo")} /> */}
+                        {/* <input type="file" {...register("photo")} /> */}
                         <input type="submit" />
 
                     </form>
@@ -87,20 +72,11 @@ export const SignUp:React.FC<PropsType> = ({positions}) => {
 }
 // pattern: /^[\+]{0,1}380([0-9]{9})$/
 
-// type RadioPropsType = {
-//     name: string
-// }
-
-// const Radio:React.FC<RadioPropsType> = ({name}) => {
-//     return (
-//         <input type="radio" name={name} />
-//     )
-// }
-
 //types
 type FormDataType = {
     name: string
     email: string
     phone: string
     photo: string
+    position: number
 }
