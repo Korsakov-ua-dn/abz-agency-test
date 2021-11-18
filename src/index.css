@@ -1,7 +1,11 @@
 @font-face {
-    font-family: 'Nunito Sans Regular';
-    src: url("./Assets/Fonts/Nunito-Regular.ttf") format('truetype');
+    font-family: 'Nunito';
+    src: url('./Assets//Fonts//Nunito-Regular.woff2') format('woff2'),
+    url('./Assets/Fonts/Nunito-Regular.woff') format('woff');
     font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    color: #000000 87%;
 }
 @font-face {
     font-family: 'Asap';
@@ -10,6 +14,7 @@
     font-weight: 400;
     font-style: normal;
     font-display: swap;
+    color: #000000 87%;
 }
 
 *,
@@ -29,6 +34,9 @@ body {
     sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000 87%;
 }
 
 ul {
@@ -42,6 +50,9 @@ a {
 input {
     font-family: inherit;
 }
-h1, h2, a, p, button {
-    font-family: "Nunito Sans Regular", sans-serif;
+h1, h2, a, p, button, span {
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    color: #000000 87%;
 }

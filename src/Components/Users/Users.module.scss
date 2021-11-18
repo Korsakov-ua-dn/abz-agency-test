@@ -2,69 +2,75 @@
 @import "../../SassCommon/variables";
 
 .section {
-    @include container(60px);
-    @include flexCenter(column);
+    .container {
+        @include container(60px);
 
-    h1 {
-        margin-bottom: 10px;
-        text-align: center;
-    }
-    h2 {
-        margin-bottom: 32px;
-        font-size: 22px;
-        line-height: 28px;
-        text-align: center;
-    }
-    button {
-        margin-top: 50px;
-    }
-}
+        .wrapper {
+            @include flexCenter(column);
 
-.userWrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 36px 30px;
-    border-radius: 16px;
-    background-color: white;
+            h1 {
+                margin-bottom: 10px;
+                text-align: center;
+            }
+            h2 {
+                margin-bottom: 32px;
+                font-size: 22px;
+                line-height: 28px;
+                text-align: center;
+            }
+            .userWrapper {
+                height: 313px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 36px 30px;
+                border-radius: 16px;
+                background-color: white;
+            
+                .photoWrapper {
+                    width: 70px;
+                    margin-bottom: 13px; //correct to pixel-perfect
+            
+                    img {
+                        width: 100%;
+                        border-radius: 50%;
+                    }
+                }
+            
+                h2 {
+                    margin-bottom: 4px;
+                    font-size: 22px;
+                    line-height: 28px;
+                    text-align: center;
+                    color: $textColor;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    width: 222px;
+            
+                }
+                .descrWrapper {
+                    @include flexCenter(column);
+            
+                    text-align: center;
+            
+                    .position,
+                    .email,
+                    .phone
+                     {
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        width: 222px;
+                        font-size: 16px;
+                        line-height: 26px;
+                    }
+                }
+            }
+            button {
+                margin-top: 50px;
+            }
 
-    .photoWrapper {
-        width: 70px;
-        margin-bottom: 20px;
-
-        img {
-            width: 100%;
-            border-radius: 50%;
-        }
-    }
-
-    h2 {
-        margin-bottom: 18px;
-        font-size: 22px;
-        line-height: 28px;
-        text-align: center;
-        color: $textColor;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        width: 222px;
-
-    }
-    .descrWrapper {
-        @include flexCenter(column);
-
-        text-align: center;
-
-        .position,
-        .email,
-        .phone
-         {
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 222px;
-            font-size: 16px;
-            line-height: 26px;
         }
     }
 }

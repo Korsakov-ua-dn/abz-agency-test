@@ -6,17 +6,21 @@ import Button from "../Common/Button/Button"
 export const Requirements = () => {
     return (
         <section className={s.section}>
-            <div>
-                <img src={img} alt="img"/>
-            </div>
-            <div className={s.description}>
-                <Title>Let's get acquainted</Title>
-                <h2>I'm a good front-end developer</h2>
-                <p>What defines a good front-end developer is one that has skilled knowledge of HTML, CSS, JS with a
-                    vast understanding of User design thinking as they'll be building web interfaces with accessibility
-                    in mind. They should also be excited to learn, as the world of Front-End Development keeps
-                    evolving.</p>
-                <Button>Sign up</Button>
+            <div className={s.container}>
+                <div className={s.wrapper}>
+                    <div>
+                        <img src={img} alt="img"/>
+                    </div>
+                    <div className={s.description}>
+                        <Title>Let's get acquainted</Title>
+                        <h2>I'm a good front-end developer</h2>
+                        <p>What defines a good front-end developer is one that has skilled knowledge of HTML, CSS, JS with a
+                            vast understanding of User design thinking as they'll be building web interfaces with accessibility
+                            in mind. They should also be excited to learn, as the world of Front-End Development keeps
+                            evolving.</p>
+                        <Button>Sign up</Button>
+                    </div>
+                </div>
             </div>
         </section>
     )

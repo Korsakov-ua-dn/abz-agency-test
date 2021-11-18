@@ -27,18 +27,22 @@ export const Users: React.FC<PropsType> = ({
 
     return (
         <section className={s.section}>
-            <Title>Our cheerful users</Title>
-            <h2>The best specialists are shown below</h2>
-            <div style={grid}>
-                {users.map(u => <User
-                    key={u.id}
-                    photo={u.photo}
-                    name={u.name}
-                    position={u.position}
-                    email={u.email}
-                    phone={u.phone}/>)}
+            <div className={s.container}>
+                <div className={s.wrapper}>
+                    <Title>Our cheerful users</Title>
+                    <h2>The best specialists are shown below</h2>
+                    <div style={grid}>
+                        {users.map(u => <User
+                            key={u.id}
+                            photo={u.photo}
+                            name={u.name}
+                            position={u.position}
+                            email={u.email}
+                            phone={u.phone}/>)}
+                    </div>
+                    {!lastPage && <Button onClick={showMoreHandler} >Show more</Button>}
+                </div>
             </div>
-            {!lastPage && <Button onClick={showMoreHandler} >Show more</Button>}
         </section>
     )
 }

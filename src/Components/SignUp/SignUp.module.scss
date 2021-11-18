@@ -1,0 +1,32 @@
+@import "../../SassCommon/mixines";
+
+.section {
+
+    padding-top: 175px;
+
+    .container {
+        @include container(60px);
+
+        .wrapper {
+            @include flexCenter(column);
+
+            h2 {
+                margin: 10px 0 32px;
+                font-size: 22px;
+                line-height: 28px;
+            }
+
+            .form {
+                @include flexCenter(column);
+
+                .positionWrapper {
+                    @include flexCenter(column);
+
+                    align-items: start;
+                    width: 100%;
+                }
+            }
+            
+        }
+    }
+}

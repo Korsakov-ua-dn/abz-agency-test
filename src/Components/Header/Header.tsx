@@ -31,7 +31,7 @@ export const Header = ()  => {
                 </svg>
             </div>
             <nav className={s.nav}>
-                <Link to="aboutMe">About Me</Link>
+                <Link to="aboutMe">About me</Link>
                 <Link to="relationships">Relationships</Link>
                 <Link to="requirements">Requirements</Link>
                 <Link to="users">Users</Link>

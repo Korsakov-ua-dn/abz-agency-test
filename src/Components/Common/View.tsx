@@ -1,5 +1,5 @@
 import Button from "./Button/Button"
-import {InputText} from "./Input/InputText"
+import {Input} from "./Input/Input"
 
 export const View = () => {
 
@@ -13,18 +13,14 @@ export const View = () => {
         }}>
             <Button>Normal</Button>
             <Button disabled>Disabled</Button>
-            <InputText
+            <Input
                 label={"E-mail"}
                 placeholder={"enter your email"}
-                maxLength={10}
-                error={""}
-                currentLength={5}/>
-            <InputText
+                error={""}/>
+            <Input
                 label={"Error"}
                 placeholder={"enter your email"}
-                maxLength={10}
-                error={"Helper text"}
-                currentLength={5}/>
+                error={"Helper text"}/>
             <h1>The five boxing wizards jump quickly.</h1>
             <p>The five boxing wizards jump quickly.</p>
         </div>

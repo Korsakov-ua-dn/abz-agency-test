@@ -13,17 +13,15 @@ type SuperInputTextPropsType = DefaultInputPropsType & { // и + ещё проп
     error?: string
     label?: string
     spanClassName?: string
-    maxLength: number
-    currentLength: number
+    register?: any
 }
 
-export const InputText: React.FC<SuperInputTextPropsType> = (
+export const Input: React.FC<SuperInputTextPropsType> = (
     {
-        type, // достаём и игнорируем чтоб нельзя было задать другой тип инпута
         onChange, onChangeText,
         onKeyPress, onEnter, setError,
         label, error,
-        className, maxLength, currentLength,
+        className, register,
 
         ...restProps// все остальные пропсы попадут в объект restProps
     }
@@ -50,19 +48,18 @@ export const InputText: React.FC<SuperInputTextPropsType> = (
     return (
         <div className={s.wrapper}>
             <input
-                type={'text'}
                 onChange={onChangeCallback}
                 onKeyPress={onKeyPressCallback}
                 onBlur={onBlurcallback}
                 className={finalInputClassName}
                 required // меняет поведение label!!!
+                {...register}
 
                 {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
             />
             <label className={s.label}>{label}</label>
             <div>
                 <span className={s.error}>{error}</span>
-                <span className={s.info}>{maxLength} / {currentLength}</span>
             </div>
         </div>
     )

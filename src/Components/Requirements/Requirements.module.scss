@@ -1,35 +1,43 @@
 @import "../../SassCommon/mixines";
 
 .section {
-    @include container(60px);
-    @include flexCenter(row);
 
-    margin: 175px auto;
-    justify-content: space-between;
+    .container {
+        @include container(60px);
 
-    img {
-        height: 340px;
-        max-height: 100%;
-    }
+        .wrapper {
+            @include flexCenter(row);
 
-    .description {
-        @include flexCenter(column);
-
-        align-items: flex-end;
-        width: 477px;
-        max-width: 100%;
-
-        h2 {
-            font-size: 22px;
-            line-height: 28px;
-            margin-top: 9px;
-        }   
+            justify-content: space-between;
+            margin: 175px auto 172px; // correct to pixel-perfect
         
-        p {
-            padding: 20px 0 32px 0;
-            font-size: 16px;
-            line-height: 26px;
-            text-align: right;
+            img {
+                height: 340px;
+                max-height: 100%;
+            }
+        
+            .description {
+                @include flexCenter(column);
+        
+                justify-content: flex-end;
+                align-items: flex-end;
+                width: 477px;
+                max-width: 100%;
+                padding-bottom: 3px; // correct to pixel-perfect
+        
+                h2 {
+                    font-size: 22px;
+                    line-height: 28px;
+                    margin-top: 10px;
+                }   
+                
+                p {
+                    padding: 20px 0 32px 0;
+                    font-size: 16px;
+                    line-height: 26px;
+                    text-align: right;
+                }
+            }
         }
     }
 }
