@@ -43,11 +43,14 @@
                     line-height: 28px;
                     text-align: center;
                     color: $textColor;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    overflow: hidden;
+                    // text-overflow: ellipsis;
+                    // white-space: nowrap;
+                    // overflow: hidden;
                     width: 222px;
-            
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
                 }
                 .descrWrapper {
                     @include flexCenter(column);
