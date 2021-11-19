@@ -11,6 +11,7 @@ import {UsersContainer} from '../../Components/Users/UsersContainer'
 import useWindowDimensions from '../../Utils/useWindowResize'
 import getColumns from '../../Utils/getColumns'
 import { SignUpContainer } from '../../Components/SignUp/SignUpContainer'
+import {UploadFile} from "../../Components/Common/UploadFile/UploadFile";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Requirements/>
             <UsersContainer/>
             <SignUpContainer/>
+            <UploadFile id={"upload"} error={"some error"}/>
         </div>
     );
 }
