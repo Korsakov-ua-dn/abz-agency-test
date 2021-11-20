@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
-import AppContainer from "./Main/UI/AppContainer"
+import AppContainer from './Main/UI/AppContainer'
 
 ReactDOM.render(
     <React.StrictMode>

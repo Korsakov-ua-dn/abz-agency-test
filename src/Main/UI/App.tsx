@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {useDispatch} from "react-redux"
+import {useDispatch} from 'react-redux'
 
 import {initializeApp, setNumberColumns} from '../BLL/b2-auth-reducer'
 
@@ -11,7 +11,6 @@ import {UsersContainer} from '../../Components/Users/UsersContainer'
 import useWindowDimensions from '../../Utils/useWindowResize'
 import getColumns from '../../Utils/getColumns'
 import { SignUpContainer } from '../../Components/SignUp/SignUpContainer'
-import {UploadFile} from "../../Components/Common/UploadFile/UploadFile";
 
 
 function App() {
@@ -32,7 +31,6 @@ function App() {
             <Requirements/>
             <UsersContainer/>
             <SignUpContainer/>
-            <UploadFile id={"upload"} error={"some error"}/>
         </div>
     );
 }
