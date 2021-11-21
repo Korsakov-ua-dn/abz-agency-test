@@ -22,6 +22,7 @@ const getErrorMessage = (type: PropsType | undefined) => {
         case "minLength": return "Insufficient length"
         case "pattern": return "Invalid format"
         case "required": return "Field is required"
+        case "validate": return "Invalid data"
 
         default: return ""
     }

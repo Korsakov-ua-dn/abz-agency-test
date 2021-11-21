@@ -6,6 +6,7 @@ import {Input} from "../Common/Input/Input"
 import Radio from "../Common/Radio/Radio"
 import {Title} from "../Common/Title/Title"
 import s from "./SignUp.module.scss"
+import styleBtn from "../../Components/Common/Button/Button.module.scss"
 import setMarginBottom from "../../Utils/setMarginBottom"
 import verifyUploadFile from "../../Utils/verifyUploadFile"
 import {UploadFile} from "../Common/UploadFile/UploadFile";
@@ -26,6 +27,8 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
     });
     const onSubmit: SubmitHandler<FormDataType> = data => console.log(data)
     // const onError = (errors: any, e: any) => console.log(e);
+
+    const isDisableSubmit = !!errors.email || !!errors.name || !!errors.phone || !!errors.photo || !!errors.position
 
     return (
         <section className={s.section}>
@@ -93,17 +96,18 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
                         <div className={s.uploadWrapper}>
                             <UploadFile
                                 id={"userPhoto"}
-                                error={getErrorMessage(errors.phone?.type)}
+                                error={getErrorMessage(errors.photo?.type)}
                                 register={{
                                     ...register("photo", {
                                         validate: (value) => verifyUploadFile((value as any) as File[]),
                                         required: true
                                     })
                                 }
-                                } >Upload</UploadFile>
+                                }>Upload</UploadFile>
                         </div>
 
-                        <input type="submit"/>
+                        <input disabled={isDisableSubmit} className={`${styleBtn.btn} ${styleBtn.primary}`}
+                               type="submit" value={"Sign up"}/>
 
                     </form>
                 </div>

@@ -47,10 +47,7 @@ a {
     text-decoration: none;
 }
 
-input {
-    font-family: inherit;
-}
-h1, h2, a, p, button, span, textarea, label {
+h1, h2, a, p, button, span, textarea, label, input {
     font-family: 'Nunito', sans-serif;
     font-style: normal;
     font-weight: normal;
