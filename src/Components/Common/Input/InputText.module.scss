@@ -14,7 +14,7 @@
       left: 18px;
       top: 58px;
       position: absolute;
-      color: $redColor;
+      color: $errorColor;
       font-size: 12px;
       line-height: 140%;
     }
@@ -50,17 +50,17 @@
  
   &:focus {
     &::-webkit-input-placeholder {
-      color: #7E7E7E;
+      color: $greyColor;
       transition: 0.2s;
     }
 	
 	  &::-moz-placeholder {
-      color: #7E7E7E;
+      color: $greyColor;
       transition: 0.2s;
     }
 		
 	  &:-ms-input-placeholder {
-      color: #7E7E7E;
+      color: $greyColor;
       transition: 0.2s;
     }
   }
@@ -102,10 +102,10 @@
 .errorInput,
 .errorInput:focus,
 .errorInput:valid {
-  border: 2px solid $redColor;
+  border: 2px solid $errorColor;
 
   &:valid ~ .label,
   &:focus ~ .label {
-    color: $redColor;
+    color: $errorColor;
   }
 }

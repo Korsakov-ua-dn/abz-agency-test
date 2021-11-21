@@ -19,7 +19,8 @@
             .form {
                 @include flexCenter(column);
 
-                .positionWrapper {
+                .positionWrapper,
+                .uploadWrapper  {
                     @include flexCenter(column);
 
                     align-items: flex-start;
@@ -30,6 +31,9 @@
                         font-size: 16px;
                         line-height: 26px;
                     }
+                }
+                .uploadWrapper {
+                    margin: 40px 0 50px;
                 }
             }
             

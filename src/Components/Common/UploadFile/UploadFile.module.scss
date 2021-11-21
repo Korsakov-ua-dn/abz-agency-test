@@ -1,9 +1,13 @@
+@import "../../../SassCommon/variables";
+
 .wrapper {
   position: relative;
   display: inline-flex;
   height: 54px;
+  width: 380px;
+  max-width: 100%;
 
-  .inputImg {
+  .input {
     position: absolute;
     top: 0;
     left: 0;
@@ -13,34 +17,39 @@
     visibility: hidden;
   }
 
-  .labelImg {
+  .label {
     width: 83px;
     height: 100%;
     border: 1px solid #000000DE;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
+    padding: 14px 14px 14px 15px;
+    font-size: 16px;
+    line-height: 26px;
   }
 
-  .textareaImg {
-    width: 245px;
+  .textarea {
+    width: 100%;
     height: 100%;
     resize: none;
-    border: 1px solid #D0CFCF;
+    border: 1px solid $enableColor;
     border-left: none;
     border-top-right-radius: 4px;
     border-bottom-right-radius: 4px;
+    padding: 14px 16px 12px;
+    font-size: 16px;
+    line-height: 26px;
 
     &::placeholder {
-      color: #7E7E7E;
+      color: $greyColor;
     }
   }
 
-  .errorImg {
+  .error {
     position: absolute;
     left: -10px;
     bottom: -5px;
     color: red;
   }
 }
-
 

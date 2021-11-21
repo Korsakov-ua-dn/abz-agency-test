@@ -8,6 +8,7 @@ import {Title} from "../Common/Title/Title"
 import s from "./SignUp.module.scss"
 import setMarginBottom from "../../Utils/setMarginBottom"
 import verifyUploadFile from "../../Utils/verifyUploadFile"
+import {UploadFile} from "../Common/UploadFile/UploadFile";
 
 type PropsType = {
     positions: PositionType[]
@@ -89,10 +90,18 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
                             }
                         </div>
 
-                        <input type="file" {...register("photo", {
-                            validate: (value) => verifyUploadFile((value as any) as File[]),
-                            required: true
-                        })} />
+                        <div className={s.uploadWrapper}>
+                            <UploadFile
+                                id={"userPhoto"}
+                                error={getErrorMessage(errors.phone?.type)}
+                                register={{
+                                    ...register("photo", {
+                                        validate: (value) => verifyUploadFile((value as any) as File[]),
+                                        required: true
+                                    })
+                                }
+                                } >Upload</UploadFile>
+                        </div>
 
                         <input type="submit"/>
 
