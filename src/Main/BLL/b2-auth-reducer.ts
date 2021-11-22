@@ -3,7 +3,7 @@ import {authAPI} from '../DAL/axios'
 
 const initialstate = {
     token: "",
-    numberColumns: 0 as number
+    numberColumns: 0
 }
 
 export const b2AuthReducer = (state: AuthStateType = initialstate, action: AuthActionType): AuthStateType => {
@@ -20,7 +20,6 @@ export const b2AuthReducer = (state: AuthStateType = initialstate, action: AuthA
 // actions
 const setToken = (token: string) => ({type: "AUTH/SET_TOKEN", payload: {token}} as const)
 export const setNumberColumns = (numberColumns: number) => ({type: "AUTH/SET_NUMBER_COLUMNS", payload: {numberColumns}} as const)
-
 
 // thunks
 export const initializeApp = () => (dispatch: Dispatch) => {

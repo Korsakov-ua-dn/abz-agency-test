@@ -4,7 +4,7 @@ import s from './Radio.module.scss'
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
 type RadioPropsType = DefaultInputPropsType & {
-    radioId: number | undefined
+    radioId: string | undefined
     style?: any
     name: string
 }

@@ -1,7 +1,6 @@
-import {Dispatch} from 'redux'
 import {ThunkAction} from 'redux-thunk'
 import {usersAPI, UserType} from '../DAL/axios'
-import { AppStoreType } from './b1-store'
+import {FormDataType} from "../../Components/SignUp/SignUp";
 
 const initialstate = {
     users: [] as UserType[],
@@ -9,14 +8,15 @@ const initialstate = {
     totalPages: 0,
 }
 
-export const b3UsersReducer = (state: UsersStateType = initialstate, action: UsersActionType): UsersStateType => {
+export const usersReducer = (state: UsersStateType = initialstate, action: UsersActionType): UsersStateType => {
     switch (action.type) {
         case "USERS/SET_TOTAL_PAGES":
+        case "USERS/SET_CURRENT_PAGE":
             return {...state, ...action.payload}
         case "USERS/SET_USERS":
-            return {...state, users: [...state.users, ...action.users] }
-        case "USERS/INC_CURRENT_PAGE":
-            return {...state, currentPage: state.currentPage + 1}
+            return {...state, users: [...action.users]}
+        case "USERS/ADD_MORE_USERS":
+            return {...state, users: [...state.users, ...action.users]}
 
         default:
             return state
@@ -25,41 +25,52 @@ export const b3UsersReducer = (state: UsersStateType = initialstate, action: Use
 
 // actions
 const setUsers = (users: UserType[]) => ({type: "USERS/SET_USERS", users} as const)
-const setCurrentPage = () => ({type: "USERS/INC_CURRENT_PAGE"} as const)
+const addMoreUsers = (users: UserType[]) => ({type: "USERS/ADD_MORE_USERS", users} as const)
+const setCurrentPage = (pageNumber: number) => ({type: "USERS/SET_CURRENT_PAGE", payload: {pageNumber}} as const)
 const setTotalPages = (totalPages: number) => ({type: "USERS/SET_TOTAL_PAGES", payload: {totalPages}} as const)
 
 // thunks
-export const getUsers = (): ThunkTypes => (dispatch: Dispatch, getState: () => any) => {
+export const getUsers = (): ThunkTypes => (dispatch, getState: () => any) => {
     const countUsers = getState().auth.numberColumns * 3 // number of rows always "3"
-    const currentPage = getState().users.currentPage
-
-    usersAPI.getUsers(currentPage, countUsers)
+    usersAPI.getUsers(1, countUsers)
         .then(res => {
             dispatch(setUsers(res.data.users))
             dispatch(setTotalPages(res.data.total_pages))
         })
         .catch(e => {
             console.log(e)
-
             // const errorMessage = e.response?.data?.error || "Unknown error!"
         })
         .finally(() => {
+            dispatch(setCurrentPage(1))
         })
 }
-export const showMore = (): ThunkTypes  => dispatch => {
-    dispatch(setCurrentPage())
-    dispatch(getUsers())
-}
-export const addUser = (name: string, email: string, phone: string, position_id: number, photo: File): ThunkTypes => (dispatch, getState: () => any) => {
-    const token = getState().auth.token
 
-    usersAPI.addUser(name, email, phone, position_id, photo, token)
+export const showMoreUsers = (pageNumber: number): ThunkTypes => (dispatch, getState: () => any) => {
+    const countUsers = getState().auth.numberColumns * 3 // number of rows always "3"
+    // const currentPage = getState().users.currentPage
+    usersAPI.getUsers(pageNumber, countUsers)
+        .then(res => {
+            dispatch(addMoreUsers(res.data.users))
+            dispatch(setTotalPages(res.data.total_pages))
+        })
+        .catch(e => {
+            console.log(e)
+            // const errorMessage = e.response?.data?.error || "Unknown error!"
+        })
+        .finally(() => {
+            dispatch(setCurrentPage(pageNumber))
+        })
+}
+
+export const addUser = (payload: FormDataType): ThunkTypes => (dispatch, getState: () => any) => {
+    const token = getState().auth.token
+    usersAPI.addUser(payload, token)
         .then(res => {
             dispatch(getUsers())
         })
         .catch(e => {
             console.log(e)
-
             // const errorMessage = e.response?.data?.error || "Unknown error!"
         })
         .finally(() => {
@@ -72,8 +83,9 @@ export type UsersStateType = typeof initialstate
 export type UsersActionType = ReturnType<typeof setUsers>
     | ReturnType<typeof setCurrentPage>
     | ReturnType<typeof setTotalPages>
+    | ReturnType<typeof addMoreUsers>
 
 export type ThunkTypes<ReturnType = void> = ThunkAction<ReturnType,
-UsersStateType,
+    UsersStateType,
     unknown,
     UsersActionType>

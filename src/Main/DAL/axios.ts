@@ -1,4 +1,5 @@
 import axios from 'axios'
+import {FormDataType} from "../../Components/SignUp/SignUp";
 
 const instance = axios.create({
     baseURL: "https://frontend-test-assignment-api.abz.agency/api/v1",
@@ -14,13 +15,13 @@ export const usersAPI = {
     getUsers(currentPage: number, count: number) {
         return instance.get<GetUsersType>(`/users?page=${currentPage}&count=${count}`)
     },
-    addUser(name: string, email: string, phone: string, position_id: number, photo: File, token: string) {
+    addUser(payload: FormDataType, token: string) {
         const formData = new FormData()
-        formData.append('name', name)
-        formData.append('email', email)
-        formData.append('phone', phone)
-        formData.append('position_id', position_id)
-        formData.append('photo',photo)
+        formData.append('name', payload.name)
+        formData.append('email', payload.email)
+        formData.append('phone', payload.phone)
+        formData.append('position_id', payload.position)
+        formData.append('photo', payload.photo)
         
         return instance.post<AddUserType>(`/users`, formData, {
             headers: { 
@@ -68,7 +69,7 @@ type GetUsersType = {
 }
 
 export type PositionType = {
-   id: number
+   id: string
    name: string
 }
 
@@ -82,3 +83,11 @@ type AddUserType = {
     user_id : number,
     message : string
 }
+// 409
+// message: "User with this phone or email already exist"
+// success: false
+
+// 201
+// message: "New user successfully registered"
+// success: true
+// user_id: 97

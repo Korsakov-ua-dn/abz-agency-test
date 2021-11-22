@@ -9,9 +9,9 @@ import s from "./SignUp.module.scss"
 import styleBtn from "../../Components/Common/Button/Button.module.scss"
 import setMarginBottom from "../../Utils/setMarginBottom"
 import verifyUploadFile from "../../Utils/verifyUploadFile"
-import {UploadFile} from "../Common/UploadFile/UploadFile";
-import { useDispatch } from "react-redux"
-import { addUser } from "../../Main/BLL/b3-users-reducer"
+import {UploadFile} from "../Common/UploadFile/UploadFile"
+import {useDispatch} from "react-redux"
+import {addUser} from "../../Main/BLL/b3-users-reducer"
 
 type PropsType = {
     positions: PositionType[]
@@ -21,20 +21,20 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
 
     const dispatch = useDispatch()
 
-    const [radioId, setRadioId] = useState<number>()
+    const [radioId, setRadioId] = useState<string>()
     useEffect(() => setRadioId(positions[0]?.id), [positions])
-    const INITIAL_POSITION = 1
+    const INITIAL_POSITION = "1"
 
     const {register, handleSubmit, formState: {errors}} = useForm<FormDataType>({
         defaultValues: {
-            position: positions[0]?.id | INITIAL_POSITION
+            position: positions[0]?.id || INITIAL_POSITION
         }
     });
-    const onSubmit: SubmitHandler<FormDataType> = (data: any) => 
-    
-    dispatch(addUser(data.name, data.email, data.phone, data.position, data.photo[0]))
-
-    const onError = (errors: any, e: any) => console.log(errors);
+    const onSubmit: SubmitHandler<FormDataType> = (data: any) => {
+        const {name, email, phone, position, photo} = data
+        dispatch(addUser({ name, email, phone, position, photo: photo[0] }))
+    }
+    const onError = (errors: any, e: any) => console.log(errors)
 
     const isDisableSubmit = !!errors.email || !!errors.name || !!errors.phone || !!errors.photo || !!errors.position
 
@@ -125,10 +125,10 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
 }
 
 //types
-type FormDataType = {
+export type FormDataType = {
     name: string
     email: string
     phone: string
     photo: string
-    position: number
+    position: string
 }
