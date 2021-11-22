@@ -15,7 +15,19 @@ export const usersAPI = {
         return instance.get<GetUsersType>(`/users?page=${currentPage}&count=${count}`)
     },
     addUser(name: string, email: string, phone: string, position_id: number, photo: File, token: string) {
-        return instance.post<AddUserType>(`/users`, {name, email, phone, position_id, photo}, {headers: { 'Token': token}})
+        const formData = new FormData()
+        formData.append('name', name)
+        formData.append('email', email)
+        formData.append('phone', phone)
+        formData.append('position_id', position_id)
+        formData.append('photo',photo)
+        
+        return instance.post<AddUserType>(`/users`, formData, {
+            headers: { 
+                'Token': token,
+                'Content-Type': 'multipart/form-data',
+            }
+        })
     },
 }
 
