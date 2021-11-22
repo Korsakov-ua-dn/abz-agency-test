@@ -13,7 +13,10 @@ export const authAPI = {
 export const usersAPI = {
     getUsers(currentPage: number, count: number) {
         return instance.get<GetUsersType>(`/users?page=${currentPage}&count=${count}`)
-    }
+    },
+    addUser(name: string, email: string, phone: string, position_id: number, photo: File, token: string) {
+        return instance.post<AddUserType>(`/users`, {name, email, phone, position_id, photo}, {headers: { 'Token': token}})
+    },
 }
 
 export const signUpAPI = {
@@ -60,4 +63,10 @@ export type PositionType = {
 type RequestPositionsType = {
     success: boolean
     positions : PositionType[]
+}
+
+type AddUserType = {
+    success : boolean
+    user_id : number,
+    message : string
 }

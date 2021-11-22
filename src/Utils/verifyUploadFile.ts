@@ -1,5 +1,4 @@
 const verifyUploadFile = async (file?: File[]) => {
-
     if (file) {
         const acceptMinSize = await new Promise<boolean>((resolve) => {
             const img = new Image();

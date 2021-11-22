@@ -1,6 +1,7 @@
 import {Dispatch} from 'redux'
 import {ThunkAction} from 'redux-thunk'
 import {usersAPI, UserType} from '../DAL/axios'
+import { AppStoreType } from './b1-store'
 
 const initialstate = {
     users: [] as UserType[],
@@ -46,10 +47,23 @@ export const getUsers = (): ThunkTypes => (dispatch: Dispatch, getState: () => a
         })
 }
 export const showMore = (): ThunkTypes  => dispatch => {
-
     dispatch(setCurrentPage())
-
     dispatch(getUsers())
+}
+export const addUser = (name: string, email: string, phone: string, position_id: number, photo: File): ThunkTypes => (dispatch, getState: () => any) => {
+    const token = getState().auth.token
+
+    usersAPI.addUser(name, email, phone, position_id, photo, token)
+        .then(res => {
+            dispatch(getUsers())
+        })
+        .catch(e => {
+            console.log(e)
+
+            // const errorMessage = e.response?.data?.error || "Unknown error!"
+        })
+        .finally(() => {
+        })
 }
 
 // types

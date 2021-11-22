@@ -26,7 +26,7 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
         }
     });
     const onSubmit: SubmitHandler<FormDataType> = data => console.log(data)
-    // const onError = (errors: any, e: any) => console.log(e);
+    const onError = (errors: any, e: any) => console.log(errors);
 
     const isDisableSubmit = !!errors.email || !!errors.name || !!errors.phone || !!errors.photo || !!errors.position
 
@@ -36,7 +36,7 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
                 <div className={s.wrapper}>
                     <Title>Register to get a work</Title>
                     <h2>Your personal data is stored according to the Privacy Policy</h2>
-                    <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
+                    <form onSubmit={handleSubmit(onSubmit, onError)} className={s.form}>
 
                         <Input
                             style={setMarginBottom(50)}
@@ -99,7 +99,7 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
                                 error={getErrorMessage(errors.photo?.type)}
                                 register={{
                                     ...register("photo", {
-                                        validate: (value) => verifyUploadFile((value as any) as File[]),
+                                        validate: (value: any) => verifyUploadFile((value as any) as File[]),
                                         required: true
                                     })
                                 }

@@ -39,6 +39,13 @@
     padding: 14px 16px 12px;
     font-size: 16px;
     line-height: 26px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    // display: -webkit-box;
+    // -webkit-box-orient: vertical;
+    // -webkit-line-clamp: 1;
+    // overflow: hidden;
 
     &::placeholder {
       color: $greyColor;
@@ -55,6 +62,15 @@
     font-weight: normal;
     font-size: 12px;
     line-height: 140%;
+  }
+
+  .errorLabel {
+    border: 2px solid $errorColor;
+  }
+
+  .errorTextarea {
+    border: 2px solid $errorColor;
+    border-left: none;
   }
 }
 
