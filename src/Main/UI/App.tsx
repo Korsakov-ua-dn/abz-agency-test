@@ -11,6 +11,8 @@ import {UsersContainer} from '../../Components/Users/UsersContainer'
 import useWindowDimensions from '../../Utils/useWindowResize'
 import getColumns from '../../Utils/getColumns'
 import { SignUpContainer } from '../../Components/SignUp/SignUpContainer'
+import Footprint from '../../Components/Footprint/Footprint'
+import Footer from '../../Components/Footer/Footer'
 
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
             <Requirements/>
             <UsersContainer/>
             <SignUpContainer/>
+            <Footprint/>
+            <Footer/>
         </div>
     );
 }

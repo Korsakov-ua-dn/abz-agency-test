@@ -39,7 +39,7 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
     const isDisableSubmit = !!errors.email || !!errors.name || !!errors.phone || !!errors.photo || !!errors.position
 
     return (
-        <section className={s.section}>
+        <section className={s.section} id="signUp">
             <div className={s.container}>
                 <div className={s.wrapper}>
                     <Title>Register to get a work</Title>

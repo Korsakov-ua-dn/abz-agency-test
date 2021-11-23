@@ -26,7 +26,7 @@ export const Users: React.FC<PropsType> = ({
     }
 
     return (
-        <section className={s.section}>
+        <section className={s.section} id="users">
             <div className={s.container}>
                 <div className={s.wrapper}>
                     <Title>Our cheerful users</Title>

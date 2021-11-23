@@ -4,7 +4,7 @@ import s from "./Relationships.module.scss"
 
 export const Relationships = () => {
     return (
-        <section className={s.section}>
+        <section className={s.section} id="relationships">
             <div className={s.wrapper}>
                 <div className={s.container}>
                     <div className={s.description}>

@@ -5,7 +5,7 @@ import Button from "../Common/Button/Button"
 
 export const Requirements = () => {
     return (
-        <section className={s.section}>
+        <section className={s.section} id="requirements">
             <div className={s.container}>
                 <div className={s.wrapper}>
                     <div>

@@ -1,0 +1,18 @@
+@import "../../SassCommon/mixines.scss";
+
+.footer {
+    border: 1px solid #E0E0E0;
+
+    .wrapper {
+        @include flexCenter(row);
+        width: 100%;
+        padding: 18px 0;
+
+        span {
+            @include flexCenter(row);
+            width: 380px;
+            font-size: 16px;
+            line-height: 26px;
+        }
+    }
+}
