@@ -1,4 +1,5 @@
-import Button from "../Common/Button/Button"
+import {Button} from "react-scroll/modules"
+import btnStyle from "../../Components/Common/Button/Button.module.scss"
 import {Title} from "../Common/Title/Title"
 import s from "./Relationships.module.scss"
 
@@ -14,7 +15,15 @@ export const Relationships = () => {
                                 ensure conversion. Therefore, responsive design, programming languages and specific frameworks
                                 are the must-have skillsets to look for when assessing your front-end developers.</p>
                         </div>
-                        <Button>Sign up</Button>
+                        <Button
+                            className={`${btnStyle.primary} ${btnStyle.btn}`}
+                            type="submit"
+                            value="Sign up"
+                            to="signUp"
+                            spy={true}
+                            smooth={true}
+                            offset={70}
+                            duration={500}/>
                     </div>
                 </div>
             </div>

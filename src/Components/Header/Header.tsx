@@ -46,7 +46,7 @@ export const Header = ()  => {
                             activeClass={s.active}
                             spy = { true } 
                             smooth = { true } 
-                            offset = { -100 } 
+                            offset = { 0 }
                             duration = { 500 }
                     >Relationships</Link>
                     </div>
@@ -56,7 +56,7 @@ export const Header = ()  => {
                             activeClass={s.active}
                             spy = { true } 
                             smooth = { true } 
-                            offset = { -150 } 
+                            offset = { 0 }
                             duration = { 500 }
                     >Requirements</Link>
                     </div>
@@ -66,7 +66,7 @@ export const Header = ()  => {
                             activeClass={s.active}
                             spy = { true } 
                             smooth = { true } 
-                            offset = { -100 } 
+                            offset = { 60 }
                             duration = { 500 }
                     >Users</Link>
                     </div>
@@ -76,7 +76,7 @@ export const Header = ()  => {
                             activeClass={s.active}
                             spy = { true } 
                             smooth = { true } 
-                            offset = { 50 } 
+                            offset = { 65 }
                             duration = { 500 }
                     >Sign Up</Link>
                     </div>

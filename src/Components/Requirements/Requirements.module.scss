@@ -1,35 +1,37 @@
 @import "../../SassCommon/mixines";
+@import "../../SassCommon/variables";
 
 .section {
+    margin: 0 auto;
+    padding-top: 175px; // correct to pixel-perfect
+
     .container {
         @include container(60px);
 
         .wrapper {
             @include flexCenter(row);
-
             justify-content: space-between;
-            margin: 175px auto 172px; // correct to pixel-perfect
-        
+
             img {
                 height: 340px;
                 max-height: 100%;
             }
-        
+
             .description {
                 @include flexCenter(column);
-        
+
                 justify-content: flex-end;
                 align-items: flex-end;
                 width: 477px;
                 max-width: 100%;
                 padding-bottom: 3px; // correct to pixel-perfect
-        
+
                 h2 {
                     font-size: 22px;
                     line-height: 28px;
                     margin-top: 10px;
-                }   
-                
+                }
+
                 p {
                     padding: 20px 0 32px 0;
                     font-size: 16px;
@@ -42,12 +44,14 @@
 }
 
 @media screen and (max-width: 767px) {
-    .container {
-        @include container(0px);
-        .wrapper {
-            flex-direction: column !important;
-            justify-content: center !important;
-            align-items: center !important;
+    .section {
+        .container {
+            @include container(0px);
+            .wrapper {
+                flex-direction: column !important;
+                justify-content: center !important;
+                align-items: center !important;
+            }
         }
     }
-  }
+}

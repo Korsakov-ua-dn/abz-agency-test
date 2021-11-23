@@ -2,6 +2,8 @@
 @import "../../SassCommon/variables";
 
 .section {
+    padding-top: 172px;
+
     .container {
         @include container(60px);
 

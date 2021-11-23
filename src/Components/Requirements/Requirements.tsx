@@ -1,7 +1,8 @@
 import s from "./Requirements.module.scss"
 import img from "../../Assets/Img/man_at_table.svg"
 import {Title} from "../Common/Title/Title"
-import Button from "../Common/Button/Button"
+import {Button} from "react-scroll/modules"
+import btnStyle from "../../Components/Common/Button/Button.module.scss"
 
 export const Requirements = () => {
     return (
@@ -18,7 +19,15 @@ export const Requirements = () => {
                             vast understanding of User design thinking as they'll be building web interfaces with accessibility
                             in mind. They should also be excited to learn, as the world of Front-End Development keeps
                             evolving.</p>
-                        <Button>Sign up</Button>
+                        <Button
+                            className={`${btnStyle.primary} ${btnStyle.btn}`}
+                            type="submit"
+                            value="Sign up"
+                            to="signUp"
+                            spy={true}
+                            smooth={true}
+                            offset={70}
+                            duration={500}/>
                     </div>
                 </div>
             </div>
