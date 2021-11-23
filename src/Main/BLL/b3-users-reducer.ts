@@ -26,32 +26,18 @@ export const usersReducer = (state: UsersStateType = initialstate, action: Users
 // actions
 const setUsers = (users: UserType[]) => ({type: "USERS/SET_USERS", users} as const)
 const addMoreUsers = (users: UserType[]) => ({type: "USERS/ADD_MORE_USERS", users} as const)
-const setCurrentPage = (pageNumber: number) => ({type: "USERS/SET_CURRENT_PAGE", payload: {pageNumber}} as const)
+const setCurrentPage = (currentPage: number) => ({type: "USERS/SET_CURRENT_PAGE", payload: {currentPage}} as const)
 const setTotalPages = (totalPages: number) => ({type: "USERS/SET_TOTAL_PAGES", payload: {totalPages}} as const)
 
 // thunks
-export const getUsers = (): ThunkTypes => (dispatch, getState: () => any) => {
+export const getUsers = (pageNumber: number = 1): ThunkTypes => (dispatch, getState: () => any) => {
     const countUsers = getState().auth.numberColumns * 3 // number of rows always "3"
-    usersAPI.getUsers(1, countUsers)
-        .then(res => {
-            dispatch(setUsers(res.data.users))
-            dispatch(setTotalPages(res.data.total_pages))
-        })
-        .catch(e => {
-            console.log(e)
-            // const errorMessage = e.response?.data?.error || "Unknown error!"
-        })
-        .finally(() => {
-            dispatch(setCurrentPage(1))
-        })
-}
-
-export const showMoreUsers = (pageNumber: number): ThunkTypes => (dispatch, getState: () => any) => {
-    const countUsers = getState().auth.numberColumns * 3 // number of rows always "3"
-    // const currentPage = getState().users.currentPage
     usersAPI.getUsers(pageNumber, countUsers)
         .then(res => {
-            dispatch(addMoreUsers(res.data.users))
+            if (pageNumber === 1) dispatch(setUsers(res.data.users)) 
+            else {
+                dispatch(addMoreUsers(res.data.users))
+            }
             dispatch(setTotalPages(res.data.total_pages))
         })
         .catch(e => {
@@ -62,6 +48,22 @@ export const showMoreUsers = (pageNumber: number): ThunkTypes => (dispatch, getS
             dispatch(setCurrentPage(pageNumber))
         })
 }
+
+// export const showMoreUsers = (pageNumber: number): ThunkTypes => (dispatch, getState: () => any) => {
+//     const countUsers = getState().auth.numberColumns * 3 // number of rows always "3"
+//     usersAPI.getUsers(pageNumber, countUsers)
+//         .then(res => {
+//             dispatch(addMoreUsers(res.data.users))
+//             dispatch(setTotalPages(res.data.total_pages))
+//         })
+//         .catch(e => {
+//             console.log(e)
+//             // const errorMessage = e.response?.data?.error || "Unknown error!"
+//         })
+//         .finally(() => {
+//             dispatch(setCurrentPage(pageNumber))
+//         })
+// }
 
 export const addUser = (payload: FormDataType): ThunkTypes => (dispatch, getState: () => any) => {
     const token = getState().auth.token

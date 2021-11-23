@@ -37,7 +37,6 @@ export const Header = ()  => {
                     <Link to="signUp">Sign Up</Link>
                 </nav>
             </div>
-           
         </header>
     )
 }
