@@ -6,7 +6,7 @@ const initialstate = {
     numberColumns: 0
 }
 
-export const b2AuthReducer = (state: AuthStateType = initialstate, action: AuthActionType): AuthStateType => {
+export const authReducer = (state: AuthStateType = initialstate, action: AuthActionType): AuthStateType => {
     switch (action.type) {
         case "AUTH/SET_NUMBER_COLUMNS":
         case "AUTH/SET_TOKEN":

@@ -4,6 +4,7 @@
 .header {
     width: 100%;
     position: fixed;
+    z-index: 10;
     background-color: #FFFFFF;
     filter: drop-shadow(-1px -1px 5px rgba(0, 0, 0, 0.15)) drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.15));
 

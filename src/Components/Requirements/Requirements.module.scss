@@ -42,9 +42,12 @@
 }
 
 @media screen and (max-width: 767px) {
-    .wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-        background-color: red;
+    .container {
+        @include container(0px);
+        .wrapper {
+            flex-direction: column !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
     }
   }
