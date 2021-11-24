@@ -7,12 +7,12 @@ const initialstate = {
     isOpenModal: false
 }
 
-export const authReducer = (state: AuthStateType = initialstate, action: AuthActionType): AuthStateType => {
+export const appReducer = (state: AuthStateType = initialstate, action: AuthActionType): AuthStateType => {
     switch (action.type) {
         case "AUTH/SET_OPEN_MODAL":
         case "AUTH/SET_NUMBER_COLUMNS":
         case "AUTH/SET_TOKEN":
-            return {...state, ...action.payload }
+            return {...state, ...action.payload}
 
         default:
             return state
@@ -21,12 +21,15 @@ export const authReducer = (state: AuthStateType = initialstate, action: AuthAct
 
 // actions
 const setToken = (token: string) => ({type: "AUTH/SET_TOKEN", payload: {token}} as const)
-export const setNumberColumns = (numberColumns: number) => ({type: "AUTH/SET_NUMBER_COLUMNS", payload: {numberColumns}} as const)
+export const setNumberColumns = (numberColumns: number) => ({
+    type: "AUTH/SET_NUMBER_COLUMNS",
+    payload: {numberColumns}
+} as const)
 export const setOpenModal = (isOpenModal: boolean) => ({type: "AUTH/SET_OPEN_MODAL", payload: {isOpenModal}} as const)
 
 // thunks
 export const initializeApp = () => (dispatch: Dispatch) => {
-    
+
     authAPI.authMe()
         .then(res => {
             dispatch(setToken(res.data.token))

@@ -1,7 +1,7 @@
 import {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
-import {initializeApp, setNumberColumns} from '../BLL/b2-auth-reducer'
+import {initializeApp, setNumberColumns} from '../BLL/b2-app-reducer'
 import { AppStoreType } from '../BLL/b1-store'
 
 import s from './App.module.scss'
@@ -37,7 +37,7 @@ function App() {
             <SignUpContainer/>
             <Footprint/>
             <Footer/>
-            <Modal isOpenModal={true}/>
+            <Modal isOpenModal={isOpenModal}/>
         </div>
     );
 }

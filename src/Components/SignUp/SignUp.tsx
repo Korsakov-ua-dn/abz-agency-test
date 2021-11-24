@@ -12,7 +12,7 @@ import verifyUploadFile from "../../Utils/verifyUploadFile"
 import {UploadFile} from "../Common/UploadFile/UploadFile"
 import {useDispatch} from "react-redux"
 import {addUser} from "../../Main/BLL/b3-users-reducer"
-import { setOpenModal } from "../../Main/BLL/b2-auth-reducer"
+import { setOpenModal } from "../../Main/BLL/b2-app-reducer"
 
 type PropsType = {
     positions: PositionType[]

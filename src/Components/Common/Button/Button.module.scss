@@ -14,8 +14,14 @@
   &:hover {
     background-color: $primaryHoverColor;
   }
-  &:focus {
-    background-color: brown;
+  &:focus::before {
+    position: absolute;
+    background: rgba(126, 126, 126, 0.5);
+    border-radius: 80px;
+    content: '';
+    width: 120px;
+    left: 14px;
+    top: 0;
   }
   &:active::before {
     position: absolute;
@@ -24,8 +30,8 @@
     width: 134px;
     height: 100px;
     border-radius: 45px;
-    left: 8px;
-    top: 5px;
+    left: 7px;
+    top: 0;
   }
 }
 

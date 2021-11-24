@@ -1,12 +1,14 @@
-import { useDispatch } from "react-redux"
-import { setOpenModal } from "../../../Main/BLL/b2-auth-reducer"
+import React from "react"
+import {useDispatch} from "react-redux"
+import {setOpenModal} from "../../../Main/BLL/b2-app-reducer"
 import Button from "../Button/Button"
 import s from "./Modal.module.scss"
+
 
 type PropsType = {
     isOpenModal: boolean
 }
-const Modal:React.FC<PropsType> = ({isOpenModal}) => {
+const Modal: React.FC<PropsType> = ({isOpenModal}) => {
 
     const dispatch = useDispatch()
     const btnHandler = () => dispatch(setOpenModal(false))
@@ -15,7 +17,7 @@ const Modal:React.FC<PropsType> = ({isOpenModal}) => {
 
     return (
         <div className={s.wrapper}>
-            <div className={s.background}></div>
+            <div className={s.background}/>
             <div className={s.modal}>
                 <div className={s.descr}>
                     <h3 className={s.title}>Congratulations</h3>

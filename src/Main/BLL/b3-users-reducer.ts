@@ -1,7 +1,7 @@
 import {ThunkAction} from 'redux-thunk'
 import {usersAPI, UserType} from '../DAL/axios'
 import {FormDataType} from "../../Components/SignUp/SignUp";
-import { setOpenModal } from './b2-auth-reducer';
+import { setOpenModal } from './b2-app-reducer';
 import { RootAppActionsType } from './b1-store';
 
 const initialstate = {

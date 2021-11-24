@@ -40,7 +40,7 @@ export const Users: React.FC<PropsType> = ({
                             email={u.email}
                             phone={u.phone}/>)}
                     </div>
-                    {!lastPage && <Button onClick={showMoreHandler} >Show more</Button>}
+                    {!lastPage && <Button onClick={showMoreHandler}>Show more</Button>}
                 </div>
             </div>
         </section>
