@@ -1,6 +1,8 @@
 import {ThunkAction} from 'redux-thunk'
 import {usersAPI, UserType} from '../DAL/axios'
 import {FormDataType} from "../../Components/SignUp/SignUp";
+import { setOpenModal } from './b2-auth-reducer';
+import { RootAppActionsType } from './b1-store';
 
 const initialstate = {
     users: [] as UserType[],
@@ -49,27 +51,12 @@ export const getUsers = (pageNumber: number = 1): ThunkTypes => (dispatch, getSt
         })
 }
 
-// export const showMoreUsers = (pageNumber: number): ThunkTypes => (dispatch, getState: () => any) => {
-//     const countUsers = getState().auth.numberColumns * 3 // number of rows always "3"
-//     usersAPI.getUsers(pageNumber, countUsers)
-//         .then(res => {
-//             dispatch(addMoreUsers(res.data.users))
-//             dispatch(setTotalPages(res.data.total_pages))
-//         })
-//         .catch(e => {
-//             console.log(e)
-//             // const errorMessage = e.response?.data?.error || "Unknown error!"
-//         })
-//         .finally(() => {
-//             dispatch(setCurrentPage(pageNumber))
-//         })
-// }
-
 export const addUser = (payload: FormDataType): ThunkTypes => (dispatch, getState: () => any) => {
     const token = getState().auth.token
     usersAPI.addUser(payload, token)
         .then(res => {
             dispatch(getUsers())
+            dispatch(setOpenModal(true))
         })
         .catch(e => {
             console.log(e)
@@ -90,4 +77,4 @@ export type UsersActionType = ReturnType<typeof setUsers>
 export type ThunkTypes<ReturnType = void> = ThunkAction<ReturnType,
     UsersStateType,
     unknown,
-    UsersActionType>
+    RootAppActionsType>

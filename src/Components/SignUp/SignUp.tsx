@@ -20,21 +20,41 @@ type PropsType = {
 export const SignUp: React.FC<PropsType> = ({positions}) => {
 
     const dispatch = useDispatch()
+    const [uploadFileName, setUploadFileName] = useState<string | undefined>("")
 
     const [radioId, setRadioId] = useState<string>()
     useEffect(() => setRadioId(positions[0]?.id), [positions])
     const INITIAL_POSITION = "1"
 
-    const {register, handleSubmit, formState: {errors}} = useForm<FormDataType>({
+    const {
+        register, 
+        handleSubmit,
+        reset,
+        formState,
+        formState: {errors, isSubmitSuccessful},
+    } = useForm<FormDataType>({
         defaultValues: {
             position: positions[0]?.id || INITIAL_POSITION
         }
     });
     const onSubmit: SubmitHandler<FormDataType> = (data: any) => {
-        const {name, email, phone, position, photo} = data
-        dispatch(addUser({ name, email, phone, position, photo: photo[0] }))
+        console.log(data);
+        
+        // const {name, email, phone, position, photo} = data
+        // dispatch(addUser({ name, email, phone, position, photo: photo[0] }))
     }
-    const onError = (errors: any, e: any) => console.log(errors)
+    useEffect(() => {
+        if (formState.isSubmitSuccessful) {
+            setUploadFileName('')
+            reset({
+                name: '',
+                email: '',
+                phone: '',
+                photo: '',
+                position: '' 
+            });
+        }
+    }, [formState, isSubmitSuccessful, reset]);
 
     const isDisableSubmit = !!errors.email || !!errors.name || !!errors.phone || !!errors.photo || !!errors.position
 
@@ -44,7 +64,7 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
                 <div className={s.wrapper}>
                     <Title>Register to get a work</Title>
                     <h2>Your personal data is stored according to the Privacy Policy</h2>
-                    <form onSubmit={handleSubmit(onSubmit, onError)} className={s.form}>
+                    <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
 
                         <Input
                             style={setMarginBottom(50)}
@@ -105,6 +125,8 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
                             <UploadFile
                                 id={"userPhoto"}
                                 error={getErrorMessage(errors.photo?.type)}
+                                uploadFileName={uploadFileName}
+                                setUploadFileName={setUploadFileName}
                                 register={{
                                     ...register("photo", {
                                         validate: (value: any) => verifyUploadFile((value as any) as File[]),

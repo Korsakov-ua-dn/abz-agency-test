@@ -1,8 +1,8 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux'
 import thunkMiddleware from 'redux-thunk'
-import {authReducer} from './b2-auth-reducer'
-import {usersReducer} from './b3-users-reducer'
-import { signUpReducer } from './b4-signUp-reducer';
+import {AuthActionType, authReducer} from './b2-auth-reducer'
+import {UsersActionType, usersReducer} from './b3-users-reducer'
+import { SignUpActionType, signUpReducer } from './b4-signUp-reducer';
 
 const reducers = combineReducers({
     auth: authReducer,
@@ -14,6 +14,7 @@ const store = createStore(reducers, applyMiddleware(thunkMiddleware))
 
 export default store
 
+export type RootAppActionsType = AuthActionType | UsersActionType | SignUpActionType
 export type AppStoreType = ReturnType<typeof reducers>
 
 // @ts-ignore

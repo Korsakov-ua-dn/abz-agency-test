@@ -4,19 +4,23 @@ import React, {useState} from "react"
 type PropsType = {
     error: string
     id: string
+    uploadFileName: string | undefined
+    setUploadFileName: (fileName: string) => void
     register?: any
 }
 
 export const UploadFile: React.FC<PropsType> = ({
                                                     error,
                                                     id,
+                                                    uploadFileName,
+                                                    setUploadFileName,
                                                     register,
                                                     children
                                                 }) => {
 
     const {onChange, ...restProps} = register                                            
 
-    const [uploadFileName, setUploadFileName] = useState<string>()
+    // const [uploadFileName, setUploadFileName] = useState<string>()
     const inputUploadHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.target.files && setUploadFileName(e.target.files[0].name)
     }
