@@ -12,6 +12,7 @@ import verifyUploadFile from "../../Utils/verifyUploadFile"
 import {UploadFile} from "../Common/UploadFile/UploadFile"
 import {useDispatch} from "react-redux"
 import {addUser} from "../../Main/BLL/b3-users-reducer"
+import { setOpenModal } from "../../Main/BLL/b2-auth-reducer"
 
 type PropsType = {
     positions: PositionType[]
@@ -39,6 +40,7 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
     });
     const onSubmit: SubmitHandler<FormDataType> = (data: any) => {
         console.log(data);
+        dispatch(setOpenModal(true))
         
         // const {name, email, phone, position, photo} = data
         // dispatch(addUser({ name, email, phone, position, photo: photo[0] }))

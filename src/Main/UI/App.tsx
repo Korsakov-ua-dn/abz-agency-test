@@ -16,8 +16,6 @@ import Footprint from '../../Components/Footprint/Footprint'
 import Footer from '../../Components/Footer/Footer'
 import Modal from '../../Components/Common/Modal/Modal'
 
-
-
 function App() {
 
     const dispatch = useDispatch()
@@ -39,7 +37,7 @@ function App() {
             <SignUpContainer/>
             <Footprint/>
             <Footer/>
-            <Modal isOpenModal={isOpenModal}/>
+            <Modal isOpenModal={true}/>
         </div>
     );
 }

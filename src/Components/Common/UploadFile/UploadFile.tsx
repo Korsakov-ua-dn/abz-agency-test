@@ -6,7 +6,7 @@ type PropsType = {
     id: string
     uploadFileName: string | undefined
     setUploadFileName: (fileName: string) => void
-    register?: any
+    register: any
 }
 
 export const UploadFile: React.FC<PropsType> = ({
@@ -20,7 +20,6 @@ export const UploadFile: React.FC<PropsType> = ({
 
     const {onChange, ...restProps} = register                                            
 
-    // const [uploadFileName, setUploadFileName] = useState<string>()
     const inputUploadHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.target.files && setUploadFileName(e.target.files[0].name)
     }

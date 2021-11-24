@@ -1,6 +1,7 @@
 @import "../../../SassCommon/variables";
 
 .btn {
+  position: relative;
   height: 50px;
   width: 148px;
   border: none;
@@ -9,8 +10,22 @@
   font-size: 16px;
   line-height: 26px;
   cursor: pointer;
+  overflow: hidden;
   &:hover {
     background-color: $primaryHoverColor;
+  }
+  &:focus {
+    background-color: brown;
+  }
+  &:active::before {
+    position: absolute;
+    background: rgba(126, 126, 126, 0.5);
+    content: '';
+    width: 134px;
+    height: 100px;
+    border-radius: 45px;
+    left: 8px;
+    top: 5px;
   }
 }
 

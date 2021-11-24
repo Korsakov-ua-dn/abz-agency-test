@@ -15,6 +15,7 @@ const Modal:React.FC<PropsType> = ({isOpenModal}) => {
 
     return (
         <div className={s.wrapper}>
+            <div className={s.background}></div>
             <div className={s.modal}>
                 <div className={s.descr}>
                     <h3 className={s.title}>Congratulations</h3>
