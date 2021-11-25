@@ -47,6 +47,7 @@
     .section {
         .wrapper {
             height: 500px;
+            background-position: -140px 0px;
             .container {
                 @include container(32px);
                 .description {
@@ -63,6 +64,8 @@
     .section {
         .wrapper {
             height: 469px;
+            background-size: 815px;
+            background-position: -218px 112px;
             .container {
                 @include container(16px);
                 .description {

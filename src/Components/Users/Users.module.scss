@@ -74,10 +74,6 @@
                     }
                 }
             }
-            button {
-                margin-top: 50px;
-            }
-
         }
     }
 }
@@ -117,7 +113,7 @@
                     width: 328px;
                 }
                 button {
-                    margin-top: 59px;
+                    margin-top: 8px; // fix bug at figma project
                 }
             }
         }

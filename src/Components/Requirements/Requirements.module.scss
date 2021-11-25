@@ -13,8 +13,8 @@
             justify-content: space-between;
 
             img {
-                height: 340px;
-                max-height: 100%;
+                width: 387px;
+                //width: 100%;
             }
 
             .description {
@@ -62,7 +62,8 @@
             @include container(32px);
             .wrapper {
                 img {
-                    height: 260px;
+                    width: 296px;
+                    //width: 100%;
                 }
                 .description {
                     width: 368px;
@@ -79,7 +80,8 @@
             @include container(16px);
             .wrapper {
                 img {
-                    height: 287px;
+                    width: 328px;
+                    //width: 100%;
                 }
                 .description {
                     margin-top: 38px;

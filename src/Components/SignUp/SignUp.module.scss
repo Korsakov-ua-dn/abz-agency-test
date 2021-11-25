@@ -17,6 +17,7 @@
 
             .form {
                 @include flexCenter(column);
+                width: 380px;
 
                 .positionWrapper,
                 .uploadWrapper  {
@@ -61,7 +62,9 @@
         .container {
             @include container(16px);
             .wrapper {
-                
+                .form {
+                    width: 328px;
+                }
                 h1, h2 {
                     text-align: center;
                 }

@@ -20,6 +20,7 @@ export const Users: React.FC<PropsType> = ({
 
     const gap = columns === 3 ? 29 : columns === 2 ? 16 : 20
     const grid = {
+        marginBottom: "50px",
         display: "grid",
         gridTemplateColumns: `repeat(${columns}, 1fr)`,
         gridTemplateRows: `repeat(3, 313px)`,

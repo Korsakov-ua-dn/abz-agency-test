@@ -13,6 +13,7 @@ import {UploadFile} from "../Common/UploadFile/UploadFile"
 import {useDispatch} from "react-redux"
 import {addUser} from "../../Main/BLL/b3-users-reducer"
 import { setOpenModal } from "../../Main/BLL/b2-app-reducer"
+import Button from "../Common/Button/Button";
 
 type PropsType = {
     positions: PositionType[]
@@ -138,8 +139,8 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
                                 }>Upload</UploadFile>
                         </div>
 
-                        <input disabled={isDisableSubmit} className={`${styleBtn.btn} ${styleBtn.primary}`}
-                               type="submit" value={"Sign up"}/>
+                        <Button disabled={isDisableSubmit} className={`${styleBtn.btn} ${styleBtn.primary}`}
+                               type="submit" >Sign up</Button>
 
                     </form>
                 </div>

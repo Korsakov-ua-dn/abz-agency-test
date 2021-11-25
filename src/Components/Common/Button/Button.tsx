@@ -9,7 +9,7 @@ type SuperButtonPropsType = DefaultButtonPropsType & {
 
 const Button: React.FC<SuperButtonPropsType> = (
     {
-        className, secondary,
+        className, secondary, children,
         ...restProps
     }
 ) => {
@@ -19,7 +19,7 @@ const Button: React.FC<SuperButtonPropsType> = (
         <button
             className={finalClassName}
             {...restProps}
-        />
+        >{children}</button>
     );
 };
 
