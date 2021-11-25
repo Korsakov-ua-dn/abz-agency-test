@@ -1,11 +1,10 @@
 @import "../../SassCommon/mixines";
 
 .section {
-
     padding-top: 175px;
 
     .container {
-        @include container(60px);
+        @include container(0);
 
         .wrapper {
             @include flexCenter(column);
@@ -37,6 +36,39 @@
                 }
             }
             
+        }
+    }
+}
+
+@media screen and (max-width: 2559px) {
+    .section {
+        .container {
+            @include container(60px);
+        }
+    }
+}
+@media screen and (max-width: 1023px) {
+    .section {
+        .container {
+            @include container(32px);
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .section {
+        padding-top: 145px;
+        margin-bottom: 25px;
+        .container {
+            @include container(16px);
+            .wrapper {
+                
+                h1, h2 {
+                    text-align: center;
+                }
+                h1 {
+                    width: 12ch;
+                }
+            }
         }
     }
 }

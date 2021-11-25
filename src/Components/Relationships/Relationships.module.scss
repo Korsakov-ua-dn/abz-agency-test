@@ -11,7 +11,7 @@
         background: center / cover no-repeat url("../../Assets/Img/Banner_photo.jpg");
 
         .container {
-            @include container(60px);
+            @include container(0);
             height: 100%;
     
             .description {
@@ -28,6 +28,48 @@
                     margin-bottom: 25px;
                     font-size: 16px;
                     line-height: 26px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 2559px) {
+    .section {
+        .wrapper {
+            .container {
+                @include container(60px);
+            }
+        }
+    }
+}
+@media screen and (max-width: 1023px) {
+    .section {
+        .wrapper {
+            height: 500px;
+            .container {
+                @include container(32px);
+                .description {
+                    max-width: 424px;
+                    p {
+                        margin-bottom: 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .section {
+        .wrapper {
+            height: 469px;
+            .container {
+                @include container(16px);
+                .description {
+                    max-width: 240px;
+                    p {
+                        margin-bottom: 30px;
+                    }
                 }
             }
         }

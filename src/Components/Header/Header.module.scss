@@ -9,7 +9,7 @@
     filter: drop-shadow(-1px -1px 5px rgba(0, 0, 0, 0.15)) drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.15));
 
     .container {
-        @include container(60px);
+        @include container(0);
     
         height: 60px;
         display: flex;
@@ -35,6 +35,33 @@
 
         .active {
             color: $secondaryColor;
+        }
+    }
+}
+@media screen and (max-width: 2559px) {
+    .header {
+        .container {
+            @include container(60px);
+        }
+    }
+}
+@media screen and (max-width: 1023px) {
+    .header {
+        .container {
+            @include container(32px);
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .header {
+        .container {
+            @include container(16px);
+
+            // .nav {
+            //     display: none;
+            //     width: 735px;
+            //     max-width: 100%;
+            // }
         }
     }
 }

@@ -6,7 +6,6 @@ import { AppStoreType } from '../BLL/b1-store'
 
 import s from './App.module.scss'
 import {Header} from '../../Components/Header/Header'
-import {Relationships} from '../../Components/Relationships/Relationships'
 import {Requirements} from '../../Components/Requirements/Requirements'
 import {UsersContainer} from '../../Components/Users/UsersContainer'
 import useWindowDimensions from '../../Utils/useWindowResize'
@@ -15,6 +14,7 @@ import { SignUpContainer } from '../../Components/SignUp/SignUpContainer'
 import Footprint from '../../Components/Footprint/Footprint'
 import Footer from '../../Components/Footer/Footer'
 import Modal from '../../Components/Common/Modal/Modal'
+import { RelationshipsContainer } from '../../Components/Relationships/RelationshipsContainer'
 
 function App() {
 
@@ -31,7 +31,7 @@ function App() {
     return (
         <div className={s.app}>
             <Header/>
-            <Relationships/>
+            <RelationshipsContainer/>
             <Requirements/>
             <UsersContainer/>
             <SignUpContainer/>
