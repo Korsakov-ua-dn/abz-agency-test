@@ -1,4 +1,5 @@
 @import "../../../SassCommon/variables";
+@import "../../../SassCommon/mixines.scss";
 
 .btn {
   position: relative;
@@ -11,6 +12,8 @@
   line-height: 26px;
   cursor: pointer;
   overflow: hidden;
+  @include flexCenter(row);
+  
   &:hover {
     background-color: $primaryHoverColor;
   }

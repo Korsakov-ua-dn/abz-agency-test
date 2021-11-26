@@ -52,6 +52,7 @@
                 @include container(32px);
                 .description {
                     max-width: 424px;
+                    width: 100%;
                     p {
                         margin-bottom: 30px;
                     }
@@ -70,6 +71,7 @@
                 @include container(16px);
                 .description {
                     max-width: 240px;
+                    width: 100%;
                     p {
                         margin-bottom: 30px;
                     }
@@ -78,4 +80,3 @@
         }
     }
 }
-

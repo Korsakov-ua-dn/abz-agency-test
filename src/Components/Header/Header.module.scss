@@ -23,6 +23,8 @@
     
         .item {
             margin-left: 31px;
+            position: relative;
+            
         }
 
         .item a {
@@ -31,6 +33,22 @@
             color: $textColor;
             text-decoration: none;
             cursor: pointer;
+
+            &:hover::before {
+                content: '';
+                position: absolute;
+                width: calc(100% + 32px);
+                height: 40px;
+                left: -16px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 189, 211, 0.1);
+                border-radius: 4px;
+                z-index: -1;
+            }
+            &:hover {
+                color: $secondaryColor;
+            }
         }
 
         .active {
