@@ -2,7 +2,7 @@ import {ThunkAction} from 'redux-thunk'
 import {usersAPI, UserType} from '../DAL/axios'
 import {FormDataType} from "../../Components/SignUp/SignUp";
 import { setOpenModal } from './b2-app-reducer';
-import { RootAppActionsType } from './b1-store';
+import {AppStoreType, RootAppActionsType} from './b1-store';
 
 const initialstate = {
     users: [] as UserType[],
@@ -32,8 +32,8 @@ const setCurrentPage = (currentPage: number) => ({type: "USERS/SET_CURRENT_PAGE"
 const setTotalPages = (totalPages: number) => ({type: "USERS/SET_TOTAL_PAGES", payload: {totalPages}} as const)
 
 // thunks
-export const getUsers = (pageNumber: number = 1): ThunkTypes => (dispatch, getState: () => any) => {
-    const countUsers = getState().auth.numberColumns * 3 // number of rows always "3"
+export const getUsers = (pageNumber: number = 1): ThunkTypes => (dispatch, getState) => {
+    const countUsers = getState().app.numberColumns * 3 // number of rows always "3"
     usersAPI.getUsers(pageNumber, countUsers)
         .then(res => {
             if (pageNumber === 1) dispatch(setUsers(res.data.users)) 
@@ -52,7 +52,7 @@ export const getUsers = (pageNumber: number = 1): ThunkTypes => (dispatch, getSt
 }
 
 export const addUser = (payload: FormDataType): ThunkTypes => (dispatch, getState: () => any) => {
-    const token = getState().auth.token
+    const token = getState().app.token
     usersAPI.addUser(payload, token)
         .then(res => {
             dispatch(getUsers())
@@ -75,6 +75,6 @@ export type UsersActionType = ReturnType<typeof setUsers>
     | ReturnType<typeof addMoreUsers>
 
 export type ThunkTypes<ReturnType = void> = ThunkAction<ReturnType,
-    UsersStateType,
+    AppStoreType,
     unknown,
     RootAppActionsType>

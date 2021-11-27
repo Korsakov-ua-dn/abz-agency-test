@@ -4,11 +4,13 @@ import {authAPI} from '../DAL/axios'
 const initialstate = {
     token: "",
     numberColumns: 0,
-    isOpenModal: false
+    isOpenModal: false,
+    isOpenMenu: false,
 }
 
 export const appReducer = (state: AuthStateType = initialstate, action: AuthActionType): AuthStateType => {
     switch (action.type) {
+        case "AUTH/SET_OPEN_MENU":
         case "AUTH/SET_OPEN_MODAL":
         case "AUTH/SET_NUMBER_COLUMNS":
         case "AUTH/SET_TOKEN":
@@ -26,6 +28,7 @@ export const setNumberColumns = (numberColumns: number) => ({
     payload: {numberColumns}
 } as const)
 export const setOpenModal = (isOpenModal: boolean) => ({type: "AUTH/SET_OPEN_MODAL", payload: {isOpenModal}} as const)
+export const setOpenMenu = (isOpenMenu: boolean) => ({type: "AUTH/SET_OPEN_MENU", payload: {isOpenMenu}} as const)
 
 // thunks
 export const initializeApp = () => (dispatch: Dispatch) => {
@@ -48,3 +51,4 @@ export type AuthStateType = typeof initialstate
 export type AuthActionType = ReturnType<typeof setToken>
     | ReturnType<typeof setNumberColumns>
     | ReturnType<typeof setOpenModal>
+    | ReturnType<typeof setOpenMenu>

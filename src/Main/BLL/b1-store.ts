@@ -5,7 +5,7 @@ import {UsersActionType, usersReducer} from './b3-users-reducer'
 import { SignUpActionType, signUpReducer } from './b4-signUp-reducer';
 
 const reducers = combineReducers({
-    auth: appReducer,
+    app: appReducer,
     users: usersReducer,
     signUp: signUpReducer,
 });

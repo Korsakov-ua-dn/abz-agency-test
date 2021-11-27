@@ -10,49 +10,51 @@
 
     .container {
         @include container(0);
-    
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;  
-    }
-    
-    .nav {
-        display: flex;
-        align-items: center;
-    
-        .item {
-            margin-left: 31px;
-            position: relative;
-            
-        }
-
-        .item a {
-            font-size: 16px;
-            line-height: 26px;
-            color: $textColor;
-            text-decoration: none;
-            cursor: pointer;
-
-            &:hover::before {
-                content: '';
-                position: absolute;
-                width: calc(100% + 32px);
-                height: 40px;
-                left: -16px;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(0, 189, 211, 0.1);
-                border-radius: 4px;
-                z-index: -1;
+        .wrapper {
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .menuIcon {
+                display: none;
             }
-            &:hover {
-                color: $secondaryColor;
-            }
-        }
+            .nav {
+                display: flex;
+                align-items: center;
 
-        .active {
-            color: $secondaryColor;
+                .item {
+                    margin-left: 31px;
+                    position: relative;
+                }
+
+                .item a {
+                    font-size: 16px;
+                    line-height: 26px;
+                    color: $textColor;
+                    text-decoration: none;
+                    cursor: pointer;
+
+                    &:hover::before {
+                        content: '';
+                        position: absolute;
+                        width: calc(100% + 32px);
+                        height: 40px;
+                        left: -16px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: rgba(0, 189, 211, 0.1);
+                        border-radius: 4px;
+                        z-index: -1;
+                    }
+                    &:hover {
+                        color: $secondaryColor;
+                    }
+                }
+
+                .active {
+                    color: $secondaryColor;
+                }
+            }
         }
     }
 }
@@ -67,6 +69,14 @@
     .header {
         .container {
             @include container(32px);
+            .wrapper  {
+                .nav {
+                    display: none;
+                }
+                .menuIcon {
+                    display: block;
+                }
+            }
         }
     }
 }
@@ -74,12 +84,6 @@
     .header {
         .container {
             @include container(16px);
-
-            // .nav {
-            //     display: none;
-            //     width: 735px;
-            //     max-width: 100%;
-            // }
         }
     }
 }

@@ -4,7 +4,7 @@ import { Relationships } from "./Relationships"
 
 export const RelationshipsContainer = () => {
 
-    const numberColumns = useSelector((s: AppStoreType) => s.auth.numberColumns)
+    const numberColumns = useSelector((s: AppStoreType) => s.app.numberColumns)
 
     const text = numberColumns === 1 
     ? "Front-end developers make sure the user sees and interacts with all the necessary elements to ensure conversion."

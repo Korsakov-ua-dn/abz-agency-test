@@ -8,7 +8,7 @@ export const UsersContainer = () => {
 
     const dispatch = useDispatch()
     const users = useSelector((s: AppStoreType) => s.users.users)
-    const numberColumns = useSelector((s: AppStoreType) => s.auth.numberColumns)
+    const numberColumns = useSelector((s: AppStoreType) => s.app.numberColumns)
     const totalPages = useSelector((s: AppStoreType) => s.users.totalPages)
     const currentPage = useSelector((s: AppStoreType) => s.users.currentPage)
 
