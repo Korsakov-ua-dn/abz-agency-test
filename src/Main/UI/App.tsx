@@ -14,7 +14,8 @@ import Footprint from '../../Components/Footprint/Footprint'
 import Footer from '../../Components/Footer/Footer'
 import Modal from '../../Components/Common/Modal/Modal'
 import {RelationshipsContainer} from '../../Components/Relationships/RelationshipsContainer'
-import Menu from "../../Components/Common/Mobile Menu/Menu";
+import Menu from "../../Components/Common/Mobile Menu/Menu"
+import Preloader from "../../Components/Common/Preloader/Preloader"
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
             <Footer/>
             <Modal/>
             <Menu/>
+            <Preloader/>
         </div>
     );
 }

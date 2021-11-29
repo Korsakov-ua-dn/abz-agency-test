@@ -12,14 +12,14 @@ import verifyUploadFile from "../../Utils/verifyUploadFile"
 import {UploadFile} from "../Common/UploadFile/UploadFile"
 import {useDispatch} from "react-redux"
 import {addUser} from "../../Main/BLL/b3-users-reducer"
-import { setOpenModal } from "../../Main/BLL/b2-app-reducer"
-import Button from "../Common/Button/Button";
+import Button from "../Common/Button/Button"
 
 type PropsType = {
     positions: PositionType[]
+    errorMessage: string
 }
 
-export const SignUp: React.FC<PropsType> = ({positions}) => {
+export const SignUp: React.FC<PropsType> = ({positions, errorMessage}) => {
 
     const dispatch = useDispatch()
     const [uploadFileName, setUploadFileName] = useState<string | undefined>("")
@@ -40,11 +40,11 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
         }
     });
     const onSubmit: SubmitHandler<FormDataType> = (data: any) => {
-        console.log(data);
-        dispatch(setOpenModal(true))
+        // console.log(data);
+        // dispatch(setOpenModal(true))
         
-        // const {name, email, phone, position, photo} = data
-        // dispatch(addUser({ name, email, phone, position, photo: photo[0] }))
+        const {name, email, phone, position, photo} = data
+        dispatch(addUser({ name, email, phone, position, photo: photo[0] }))
     }
     useEffect(() => {
         if (formState.isSubmitSuccessful) {
@@ -65,7 +65,7 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
         <section className={s.section} id="signUp">
             <div className={s.container}>
                 <div className={s.wrapper}>
-                    <Title>Register to get a work</Title>
+                    <Title>Register to get a&nbsp;work</Title>
                     <h2>Your personal data is stored according to the Privacy Policy</h2>
                     <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
 
@@ -138,6 +138,8 @@ export const SignUp: React.FC<PropsType> = ({positions}) => {
                                 }
                                 }>Upload</UploadFile>
                         </div>
+
+                        {errorMessage && <span className={s.errorMessage}>{errorMessage}</span>}
 
                         <Button disabled={isDisableSubmit} className={`${styleBtn.btn} ${styleBtn.primary}`}
                                type="submit" >Sign up</Button>

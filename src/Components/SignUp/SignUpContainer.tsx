@@ -8,12 +8,13 @@ export const SignUpContainer = () => {
 
     const dispatch = useDispatch()
     const positions = useSelector((s: AppStoreType) => s.signUp.positions)
+    const errorMessage = useSelector((s: AppStoreType) => s.users.errorMessage)
 
     useEffect(() => {
         dispatch(getPositions())
     }, [dispatch])
 
     return (
-        <SignUp positions={positions}/>
+        <SignUp positions={positions} errorMessage={errorMessage}/>
     )
 }

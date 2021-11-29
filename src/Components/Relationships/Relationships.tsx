@@ -1,3 +1,4 @@
+import React from "react"
 import {Link} from "react-scroll"
 import btnStyle from "../../Components/Common/Button/Button.module.scss"
 import {Title} from "../Common/Title/Title"

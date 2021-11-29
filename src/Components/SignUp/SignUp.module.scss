@@ -1,4 +1,5 @@
 @import "../../SassCommon/mixines";
+@import "../../SassCommon/variables";
 
 .section {
     padding-top: 175px;
@@ -16,6 +17,7 @@
             }
 
             .form {
+                position: relative;
                 @include flexCenter(column);
                 width: 380px;
 
@@ -35,8 +37,18 @@
                 .uploadWrapper {
                     margin: 40px 0 50px;
                 }
+                .errorMessage {
+                    position: absolute;
+                    width: 100%;
+                    right: 50%;
+                    transform: translateX(50%);
+                    bottom: 65px;
+                    text-align: center;
+                    font-size: 12px;
+                    line-height: 140%;
+                    color: $errorColor;
+                }
             }
-            
         }
     }
 }
@@ -66,10 +78,8 @@
                     width: 328px;
                 }
                 h1, h2 {
+                    width: 328px;
                     text-align: center;
-                }
-                h1 {
-                    width: 12ch;
                 }
             }
         }
