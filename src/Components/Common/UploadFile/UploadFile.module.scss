@@ -46,7 +46,7 @@
         overflow: hidden;
 
         &:hover {
-          border-color: $textColor !important;
+            border-color: $textColor;
         }
         &::placeholder {
             color: $greyColor;

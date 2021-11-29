@@ -5,14 +5,14 @@
     @include absolut;
 
     .menu {
-        position: absolute;
+        position: fixed;
         width: 270px;
         left: 0;
         top: 0;
-        overflow: hidden;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
-        background-color: #FFFFFF;;
+        background-color: #FFFFFF;
+        height: 100%;
 
         .logoWrapper {
             height: 60px;
