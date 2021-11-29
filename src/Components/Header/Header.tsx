@@ -9,6 +9,7 @@ export const Header = ()  => {
     const dispatch = useDispatch()
     const openMenuHandler = () => {
         dispatch(setOpenMenu(true))
+        document.body.style.overflow = "hidden"; // for correct work mobileMenu
     }
 
     return (
@@ -44,7 +45,7 @@ export const Header = ()  => {
                                 activeClass={s.active}
                                 spy = { true }
                                 smooth = { true }
-                                offset = { 0 }
+                                offset = { 0.5 }
                                 duration = { 500 }
                             >Requirements</Link>
                         </div>

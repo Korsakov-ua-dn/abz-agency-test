@@ -22,7 +22,7 @@ export const User: React.FC<UserPropsType> = ({
                 <img src={photo ? photo : photoCover} onError={(e: any) => {
                     e.target.onerror = null;
                     e.target.src = photoCover
-                }} alt="photo"/>
+                }} alt="img"/>
             </div>
             <h2 className={s.title}>{name}</h2>
             <div className={s.descrWrapper}>

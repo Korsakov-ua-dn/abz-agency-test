@@ -10,15 +10,18 @@ const Menu = () => {
     const dispatch = useDispatch()
     const isOpenMenu = useSelector((s: AppStoreType) => s.app.isOpenMenu)
 
-    const handleCloseMenu = () => dispatch(setOpenMenu(false))
+    const handleCloseMenu = () => {
+        dispatch(setOpenMenu(false))
+        document.body.style.overflow = "visible"; // for correct work mobileMenu
+    }
 
     if (!isOpenMenu) return null
 
     return (
-        <div className={s.wrapper}>
+        <div className={`${s.wrapper}`}>
             <div onClick={handleCloseMenu} className={s.background}/>
 
-            <div className={s.menu}>
+            <div className={`${s.menu}`}>
 
                 <div className={s.logoWrapper}>
                     <img src={logo} alt="logo"/>
