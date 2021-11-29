@@ -1,9 +1,8 @@
 import s from "./Requirements.module.scss"
 import btnStyle from "../../Components/Common/Button/Button.module.scss"
 import img from "../../Assets/Img/man_at_table.svg"
-import { Title } from "../Common/Title/Title"
+import Title from "../Common/Title/Title"
 import { Link } from "react-scroll"
-
 
 export const Requirements = () => {
     return (

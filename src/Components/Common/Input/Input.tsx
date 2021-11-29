@@ -16,7 +16,7 @@ type SuperInputTextPropsType = DefaultInputPropsType & { // и + ещё проп
     register?: any
 }
 
-export const Input: React.FC<SuperInputTextPropsType> = (
+const Input: React.FC<SuperInputTextPropsType> = (
     {
         onChange, onChangeText,
         onKeyPress, onEnter, setError,
@@ -26,7 +26,7 @@ export const Input: React.FC<SuperInputTextPropsType> = (
         ...restProps// все остальные пропсы попадут в объект restProps
     }
 ) => {
-
+    console.log("Render Input")
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
         setError && setError('')
         onChange && onChange(e) // если есть пропс onChange то передать ему е (поскольку onChange не обязателен)
@@ -64,3 +64,5 @@ export const Input: React.FC<SuperInputTextPropsType> = (
         </div>
     )
 }
+
+export default React.memo(Input)

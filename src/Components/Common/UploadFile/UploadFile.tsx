@@ -1,5 +1,5 @@
 import s from "./UploadFile.module.scss"
-import React, {useState} from "react"
+import React from "react"
 
 type PropsType = {
     error: string
@@ -24,7 +24,7 @@ export const UploadFile: React.FC<PropsType> = ({
         e.target.files && setUploadFileName(e.target.files[0].name)
     }
 
-    const lableClassName =  ` ${error ? s.errorLabel : ''} ${s.label} `
+    const labelClassName =  ` ${error ? s.errorLabel : ''} ${s.label} `
     const textareaClassName =  ` ${error ? s.errorTextarea : ''} ${s.textarea} `
 
     return (
@@ -40,7 +40,7 @@ export const UploadFile: React.FC<PropsType> = ({
                 {...restProps}
                 
                 />
-            <label className={lableClassName} htmlFor={id}>{children}</label>
+            <label className={labelClassName} htmlFor={id}>{children}</label>
             <textarea className={textareaClassName}
                       placeholder={"Upload your photo"}
                       value={uploadFileName}

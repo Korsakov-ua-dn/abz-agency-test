@@ -1,7 +1,7 @@
 import React from "react"
 import {Link} from "react-scroll"
 import btnStyle from "../../Components/Common/Button/Button.module.scss"
-import {Title} from "../Common/Title/Title"
+import Title from "../Common/Title/Title"
 import s from "./Relationships.module.scss"
 
 type PropsType = {

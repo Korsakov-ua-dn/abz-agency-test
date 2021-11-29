@@ -21,7 +21,6 @@ function App() {
 
     const dispatch = useDispatch()
 
-
     const screenSize = useWindowDimensions()
     dispatch(setNumberColumns(getColumns(screenSize.width)))
 

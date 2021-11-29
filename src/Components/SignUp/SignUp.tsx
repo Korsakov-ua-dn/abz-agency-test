@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react"
 import {SubmitHandler, useForm} from "react-hook-form"
 import {PositionType} from "../../Main/DAL/axios"
 import getErrorMessage from "../../Utils/getErrorMessage"
-import {Input} from "../Common/Input/Input"
+import Input from "../Common/Input/Input"
 import Radio from "../Common/Radio/Radio"
-import {Title} from "../Common/Title/Title"
+import Title from "../Common/Title/Title"
 import s from "./SignUp.module.scss"
 import styleBtn from "../../Components/Common/Button/Button.module.scss"
 import setMarginBottom from "../../Utils/setMarginBottom"
@@ -39,13 +39,12 @@ export const SignUp: React.FC<PropsType> = ({positions, errorMessage}) => {
             position: positions[0]?.id || INITIAL_POSITION
         }
     });
+
     const onSubmit: SubmitHandler<FormDataType> = (data: any) => {
-        // console.log(data);
-        // dispatch(setOpenModal(true))
-        
         const {name, email, phone, position, photo} = data
         dispatch(addUser({ name, email, phone, position, photo: photo[0] }))
     }
+
     useEffect(() => {
         if (formState.isSubmitSuccessful) {
             setUploadFileName('')
