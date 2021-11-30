@@ -67,6 +67,7 @@ export const addUser = (payload: FormDataType): ThunkTypes => (dispatch, getStat
         .catch(e => {
             const errorMessage = e.response?.data?.message || "Unknown error!"
             dispatch(setErrorMessage(errorMessage))
+            setTimeout(() => dispatch(setErrorMessage("")), 3000)
         })
         .finally(() => {
             dispatch(setPreloader(false))

@@ -24,8 +24,9 @@ export const UploadFile: React.FC<PropsType> = ({
         e.target.files && setUploadFileName(e.target.files[0].name)
     }
 
-    const labelClassName =  ` ${error ? s.errorLabel : ''} ${s.label} `
-    const textareaClassName =  ` ${error ? s.errorTextarea : ''} ${s.textarea} `
+    const labelClassName =  `${s.label} ${error ? s.errorLabel : ''}`
+    const textareaClassName =  `${s.textarea}`
+    const textareaWrapper =  `${s.textareaWrapper} ${error ? s.errorTextarea : ''}`
 
     return (
         <div className={s.wrapper}>
@@ -41,11 +42,13 @@ export const UploadFile: React.FC<PropsType> = ({
                 
                 />
             <label className={labelClassName} htmlFor={id}>{children}</label>
-            <textarea className={textareaClassName}
-                      placeholder={"Upload your photo"}
-                      value={uploadFileName}
-                      readOnly
-                      />
+            <div className={textareaWrapper}>
+                <textarea className={textareaClassName}
+                          placeholder={"Upload your photo"}
+                          value={uploadFileName}
+                          readOnly
+                />
+            </div>
             <span className={s.error}>{error}</span>
         </div>
     )

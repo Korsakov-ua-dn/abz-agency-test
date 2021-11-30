@@ -29,7 +29,7 @@ export const SignUp: React.FC<PropsType> = ({positions, errorMessage}) => {
     const INITIAL_POSITION = "1"
 
     const {
-        register, 
+        register,
         handleSubmit,
         reset,
         formState,
@@ -42,7 +42,7 @@ export const SignUp: React.FC<PropsType> = ({positions, errorMessage}) => {
 
     const onSubmit: SubmitHandler<FormDataType> = (data: any) => {
         const {name, email, phone, position, photo} = data
-        dispatch(addUser({ name, email, phone, position, photo: photo[0] }))
+        dispatch(addUser({name, email, phone, position, photo: photo[0]}))
     }
 
     useEffect(() => {
@@ -53,7 +53,7 @@ export const SignUp: React.FC<PropsType> = ({positions, errorMessage}) => {
                 email: '',
                 phone: '',
                 photo: '',
-                position: '' 
+                position: ''
             });
         }
     }, [formState, isSubmitSuccessful, reset]);
@@ -138,10 +138,14 @@ export const SignUp: React.FC<PropsType> = ({positions, errorMessage}) => {
                                 }>Upload</UploadFile>
                         </div>
 
-                        {errorMessage && <span className={s.errorMessage}>{errorMessage}</span>}
+                        {
+                            errorMessage && <div className={s.popapWrapper}>
+                                <span className={s.errorMessage}>{errorMessage} !</span>
+                            </div>
+                        }
 
                         <Button disabled={isDisableSubmit} className={`${styleBtn.btn} ${styleBtn.primary}`}
-                               type="submit" >Sign up</Button>
+                                type="submit">Sign up</Button>
 
                     </form>
                 </div>
