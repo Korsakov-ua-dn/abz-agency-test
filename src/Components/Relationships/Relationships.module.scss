@@ -22,12 +22,21 @@
                 height: 100%;
                 h1 {
                     margin-bottom: 21px;
+                    max-width: 527px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 2;
+                    overflow: hidden;
                 }
                 p {
                     max-width: 527px;
                     margin-bottom: 25px;
                     font-size: 16px;
                     line-height: 26px;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 6;
+                    overflow: hidden;
                 }
             }
         }
@@ -72,8 +81,18 @@
                 .description {
                     max-width: 240px;
                     width: 100%;
+                    h1 {
+                        max-width: 240px;
+                    }
                     p {
                         margin-bottom: 30px;
+                        max-width: 240px;
+                    }
+                    p, h1 {
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 4;
+                        overflow: hidden;
                     }
                 }
             }
