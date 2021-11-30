@@ -28,6 +28,7 @@ export const User: React.FC<UserPropsType> = ({
             <div className={s.descrWrapper}>
                 <span className={s.position}>{position}</span>
                 <span className={s.email}>{email}</span>
+                <span className={s.tooltip}>{email}</span>
                 <span className={s.phone}>{phone}</span>
             </div>
         </div>

@@ -55,6 +55,7 @@
                 }
                 .descrWrapper {
                     @include flexCenter(column);
+                    position: relative;
             
                     text-align: center;
             
@@ -68,6 +69,28 @@
                         width: 222px;
                         font-size: 16px;
                         line-height: 26px;
+                    }
+                    .email {
+                        cursor: pointer;
+                        &:hover ~ .tooltip {
+                            opacity : 1;
+                        }
+                    }
+                    .tooltip {
+                        position: absolute;
+                        width: 285px;
+                        right: 50%;
+                        top: 55px;
+                        transform: translateX(50%);
+                        padding: 0 16px;
+                        opacity : 0;
+                        word-wrap: break-word;
+                        background: #232F34;
+                        border-radius: 4px;
+                        color: white;
+                        font-size: 16px;
+                        line-height: 26px;
+                        text-align: left;
                     }
                 }
             }
