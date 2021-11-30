@@ -3,14 +3,12 @@
     margin: 0 auto;
     padding: 0 $p;
 }
-
 @mixin flexCenter($direction) {
     display: flex;
     flex-direction: $direction;
     justify-content: center;
     align-items: center;
 }
-
 @mixin absolut {
     position: absolute;
     z-index: 20;
@@ -19,14 +17,12 @@
     right: 0;
     bottom: 0;
 }
-
 @mixin background {
     width: 100%;
     height: 100%;
     background-color: black;
     opacity: 0.5;
 }
-
 @mixin fixed {
     position: fixed;
     left: 50%;

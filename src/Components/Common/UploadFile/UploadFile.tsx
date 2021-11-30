@@ -18,15 +18,15 @@ export const UploadFile: React.FC<PropsType> = ({
                                                     children
                                                 }) => {
 
-    const {onChange, ...restProps} = register                                            
+    const {onChange, ...restProps} = register
 
     const inputUploadHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.target.files && setUploadFileName(e.target.files[0].name)
     }
 
-    const labelClassName =  `${s.label} ${error ? s.errorLabel : ''}`
-    const textareaClassName =  `${s.textarea}`
-    const textareaWrapper =  `${s.textareaWrapper} ${error ? s.errorTextarea : ''}`
+    const labelClassName = `${s.label} ${error ? s.errorLabel : ''}`
+    const textareaClassName = `${s.textarea}`
+    const textareaWrapper = `${s.textareaWrapper} ${error ? s.errorTextarea : ''}`
 
     return (
         <div className={s.wrapper}>
@@ -39,8 +39,8 @@ export const UploadFile: React.FC<PropsType> = ({
                     inputUploadHandler(e)
                 }}
                 {...restProps}
-                
-                />
+
+            />
             <label className={labelClassName} htmlFor={id}>{children}</label>
             <div className={textareaWrapper}>
                 <textarea className={textareaClassName}

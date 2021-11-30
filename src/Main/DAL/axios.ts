@@ -22,9 +22,9 @@ export const usersAPI = {
         formData.append('phone', payload.phone)
         formData.append('position_id', payload.position)
         formData.append('photo', payload.photo)
-        
+
         return instance.post<AddUserType>(`/users`, formData, {
-            headers: { 
+            headers: {
                 'Token': token,
                 'Content-Type': 'multipart/form-data',
             }
@@ -43,7 +43,6 @@ type AuthMe = {
     success: boolean,
     token: string
 }
-
 export type UserType = {
     id: number,
     name: string,
@@ -54,7 +53,6 @@ export type UserType = {
     registration_timestamp: number,
     photo: string
 }
-
 type GetUsersType = {
     success: boolean
     page: number
@@ -67,27 +65,16 @@ type GetUsersType = {
     }
     users: UserType[]
 }
-
 export type PositionType = {
-   id: string
-   name: string
+    id: string
+    name: string
 }
-
 type RequestPositionsType = {
     success: boolean
-    positions : PositionType[]
+    positions: PositionType[]
 }
-
 type AddUserType = {
-    success : boolean
-    user_id : number,
-    message : string
+    success: boolean
+    user_id: number,
+    message: string
 }
-// 409
-// message: "User with this phone or email already exist"
-// success: false
-
-// 201
-// message: "New user successfully registered"
-// success: true
-// user_id: 97

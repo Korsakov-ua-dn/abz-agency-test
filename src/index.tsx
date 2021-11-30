@@ -4,7 +4,6 @@ import './index.css'
 import AppContainer from './Main/UI/AppContainer'
 
 ReactDOM.render(
-    <AppContainer/>
-    ,
+    <AppContainer/>,
     document.getElementById('root')
 );

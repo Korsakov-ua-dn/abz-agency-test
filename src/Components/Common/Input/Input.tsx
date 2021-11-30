@@ -9,7 +9,6 @@ type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElem
 type SuperInputTextPropsType = DefaultInputPropsType & { // и + ещё пропсы которых нет в стандартном инпуте
     onChangeText?: (value: string) => void
     onEnter?: () => void
-    setError?: (error: string) => void
     error?: string
     label?: string
     spanClassName?: string
@@ -19,28 +18,20 @@ type SuperInputTextPropsType = DefaultInputPropsType & { // и + ещё проп
 const Input: React.FC<SuperInputTextPropsType> = (
     {
         onChange, onChangeText,
-        onKeyPress, onEnter, setError,
+        onKeyPress, onEnter,
         label, error,
         className, register,
 
         ...restProps// все остальные пропсы попадут в объект restProps
     }
 ) => {
-    console.log("Render Input")
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        setError && setError('')
         onChange && onChange(e) // если есть пропс onChange то передать ему е (поскольку onChange не обязателен)
         onChangeText && onChangeText(e.currentTarget.value)
     }
     const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
         onKeyPress && onKeyPress(e);
         onEnter && e.key === 'Enter' && onEnter() // если есть пропс onEnter и если нажата кнопка Enter, то вызвать его
-    }
-    const onBlurcallback = (e: React.FocusEvent<HTMLInputElement>) => {
-        setError && setError('')
-        if (!e.currentTarget.value) {
-            setError && setError('field is required')
-        }
     }
 
     const finalInputClassName = `${error ? s.errorInput : ''} ${s.input} ${className} `
@@ -50,7 +41,6 @@ const Input: React.FC<SuperInputTextPropsType> = (
             <input
                 onChange={onChangeCallback}
                 onKeyPress={onKeyPressCallback}
-                onBlur={onBlurcallback}
                 className={finalInputClassName}
                 required // меняет поведение label!!!
                 {...register}

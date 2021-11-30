@@ -1,14 +1,17 @@
 import React from "react"
 import {Link} from "react-scroll"
+
 import btnStyle from "../../Components/Common/Button/Button.module.scss"
-import Title from "../Common/Title/Title"
 import s from "./Relationships.module.scss"
+
+import Title from "../Common/Title/Title"
+
 
 type PropsType = {
     text: string
 }
 
-export const Relationships : React.FC<PropsType> = ({text}) => {
+export const Relationships: React.FC<PropsType> = ({text}) => {
     return (
         <section className={s.section} id="relationships">
             <div className={s.wrapper}>

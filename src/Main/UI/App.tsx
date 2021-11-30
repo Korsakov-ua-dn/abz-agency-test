@@ -3,12 +3,14 @@ import {useDispatch} from 'react-redux'
 
 import {initializeApp, setNumberColumns} from '../BLL/b2-app-reducer'
 
+import useWindowDimensions from '../../Utils/useWindowResize'
+import getColumns from '../../Utils/getColumns'
+
 import s from './App.module.scss'
+
 import {Header} from '../../Components/Header/Header'
 import {Requirements} from '../../Components/Requirements/Requirements'
 import {UsersContainer} from '../../Components/Users/UsersContainer'
-import useWindowDimensions from '../../Utils/useWindowResize'
-import getColumns from '../../Utils/getColumns'
 import {SignUpContainer} from '../../Components/SignUp/SignUpContainer'
 import Footprint from '../../Components/Footprint/Footprint'
 import Footer from '../../Components/Footer/Footer'

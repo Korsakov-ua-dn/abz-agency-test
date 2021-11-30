@@ -1,8 +1,11 @@
 import {ThunkAction} from 'redux-thunk'
+
 import {usersAPI, UserType} from '../DAL/axios'
-import {FormDataType} from "../../Components/SignUp/SignUp";
-import {setOpenModal, setPreloader} from './b2-app-reducer';
-import {AppStoreType, RootAppActionsType} from './b1-store';
+
+import {setOpenModal, setPreloader} from './b2-app-reducer'
+import {AppStoreType, RootAppActionsType} from './b1-store'
+
+import {FormDataType} from "../../Components/SignUp/SignUp"
 
 const initialstate = {
     users: [] as UserType[],

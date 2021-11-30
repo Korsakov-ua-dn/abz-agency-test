@@ -97,6 +97,13 @@
                 .description {
                     margin-top: 38px;
                     align-items: flex-start;
+                    h1 {
+                        max-width: 680px;
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 2;
+                        overflow: hidden;
+                    }
                     p {
                         text-align: left;
                     }

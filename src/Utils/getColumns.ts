@@ -1,5 +1,5 @@
 const getColumns = (width: number) => {
-    
+
     let columns;
 
     if (width < 1024 && width >= 768) {

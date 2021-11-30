@@ -6,11 +6,11 @@
     display: flex;
     align-items: center;
     cursor: pointer;
-    -webkit-box-shadow: inset 0 0 0 20px $backgroundColor !important;
+    -webkit-box-shadow: inset 0 0 0 20px $backgroundColor;
     &:hover,
     &:active,
     &:focus {
-        -webkit-box-shadow: inset 0 0 0 50px $backgroundColor !important;
+        -webkit-box-shadow: inset 0 0 0 50px $backgroundColor;
     }
 
     .input {
@@ -53,5 +53,4 @@
         font-size: 16px;
         line-height: 26px;
     }
-
 }
