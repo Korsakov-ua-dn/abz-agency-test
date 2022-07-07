@@ -4,6 +4,9 @@ import store from "../BLL/b1-store"
 
 const AppContainer = () => {
 
+    console.log("Render app");
+    
+
     return (
         <Provider store={store}>
             <App/>
