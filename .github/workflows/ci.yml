@@ -15,7 +15,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - name: Deploy
-        uses: Korsakov-ua-dn/abz-agency-test
+        uses: Korsakov-ua-dn/abz-agency-test@v1
         with:
           target_branch: gh-pages
           build_dir: build
